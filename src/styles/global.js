@@ -14,4 +14,8 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;

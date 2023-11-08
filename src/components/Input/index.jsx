@@ -1,7 +1,10 @@
-export function Input({ }) {
+import { Container } from "./styles";
+
+export function Input({ label, ...rest }) {
   return (
-    <>
-    <input type="text"/>
-    </>
-  )
+    <Container>
+      {label && <label>{label}</label>}
+      <input type="text" {...rest}/>
+    </Container>
+  );
 }
