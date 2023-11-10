@@ -11,6 +11,9 @@ export default createGlobalStyle`
     background-color: ${({ theme }) => theme.COLORS.DARK_400};
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
+    font-family: Roboto, Poppins;
+    font-weight: bold;
+
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
   }

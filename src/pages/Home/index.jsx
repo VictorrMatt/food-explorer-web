@@ -1,6 +1,7 @@
 import { Container } from "./styles";
 
-import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
+import { SideMenu } from "../../components/SideMenu";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -13,11 +14,7 @@ export function Home() {
 
   return (
     <Container>
-      <h1>
-        {user && user.name}
-        <span>{user && user.role}</span>
-      </h1>
-      <a onClick={handleSignOut}>Sair</a>
+      <Header openMenu />
     </Container>
   );
 }
