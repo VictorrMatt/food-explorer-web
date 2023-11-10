@@ -1,20 +1,19 @@
 import { Container, Hamburguer, Polygon, Receipt, Close } from "./styles";
-
 import { useAuth } from "../../hooks/auth";
 
-export function Header({ openMenu = false }) {
+export function Header({ sideState, setSideState }) {
   const { user } = useAuth();
 
   return (
     <Container>
-      {openMenu ? (
+      {sideState ? (
         <aside>
-          <Close />
+          <Close onClick={() => setSideState(false)} />
           <h2>Menu</h2>
         </aside>
       ) : (
         <>
-          <Hamburguer onClick={console.log("c")} />
+          <Hamburguer onClick={() => setSideState(true)} />
 
           <div>
             <Polygon />

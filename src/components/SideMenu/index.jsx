@@ -1,19 +1,20 @@
 import { Container } from "./styles";
 
-export function SideMenu({ menuIsOpen, onCloseMenu }) {
-  return (
-    <Container data-menu-is-open={menuIsOpen}>
-      <Header>
-        <Title>
-          <CheckCircle /> e-Tasks
-        </Title>
+import { Input } from "../../components/Input";
 
-        {menuIsOpen && (
-          <Button type="button" onClick={onCloseMenu}>
-            <X />
-          </Button>
-        )}
-      </Header>
+import { useAuth } from "../../hooks/auth";
+
+export function SideMenu({ menuIsOpen }) {
+  const { user, signOut } = useAuth();
+  return (
+    <Container style={{ display: menuIsOpen ? "block" : "none" }}>
+      <nav>
+        <Input placeholder="Busque por pratos ou ingredientes" />
+        <ul>
+          {user.role === "admin" && <li>Novo prato</li>}
+          <li onClick={signOut}>Sair</li>
+        </ul>
+      </nav>
     </Container>
   );
 }
