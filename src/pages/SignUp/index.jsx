@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Polygon } from "../../components/Header/styles";
 
 import { api } from "../../services/api";
 
@@ -36,7 +37,8 @@ export function SignUp() {
   return (
     <Container>
       <div>
-        <h1>food explorer</h1>
+        <Polygon />
+        <h2>food explorer</h2>
       </div>
 
       <form onSubmit={handleSignUp}>

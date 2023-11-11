@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Polygon } from "../../components/Header/styles";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -22,7 +23,8 @@ export function SignIn() {
   return (
     <Container>
       <div>
-        <h1>food explorer</h1>
+        <Polygon />
+        <h2>food explorer</h2>
       </div>
 
       <form onSubmit={handleSignIn}>
