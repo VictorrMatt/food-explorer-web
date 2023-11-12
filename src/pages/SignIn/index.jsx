@@ -44,6 +44,7 @@ export function SignIn() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
+          autocomplete="off"
         />
         <Button title="Entrar" />
         <Link to="/register">Criar uma conta</Link>

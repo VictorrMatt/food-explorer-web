@@ -3,11 +3,11 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   display: grid;
-  justify-content: center;
   grid-template-areas:
     "logo"
     "main";
   gap: 4.56rem;
+  margin: 9.87rem 1.5rem 0;
 
   > div {
     grid-area: logo;
@@ -19,6 +19,7 @@ export const Container = styled.div`
     h2 {
       font-size: 2.32rem;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     svg {
@@ -56,10 +57,50 @@ export const Container = styled.div`
       line-height: 1.5rem;
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
+
+    button:focus-visible {
+      animation-name: focus-button;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    a:focus-visible {
+      animation-name: focus-link;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      border-radius: 0.31rem;
+      padding: 0 0.87rem;
+    }
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     grid-template-areas: "logo main";
     align-items: center;
+  }
+
+  @keyframes focus-button {
+    0% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+    50% {
+      outline: 0px solid ${({ theme }) => theme.COLORS.TOMATO_100};
+    }
+    100% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+  }
+
+  @keyframes focus-link {
+    0% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+    50% {
+      outline: 0px solid ${({ theme }) => theme.COLORS.DARK_400};
+    }
+    100% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
   }
 `;

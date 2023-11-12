@@ -17,13 +17,12 @@ export const Container = styled.header`
     white-space: nowrap;
   }
 
-  > aside {
+  > nav:nth-child(1) {
     display: flex;
-    align-items: center;
     gap: 1rem;
   }
 
-  > div {
+  > nav:nth-child(2) {
     display: flex;
     position: relative;
     margin: auto;
@@ -59,6 +58,7 @@ export const Polygon = styled.svg`
   width: 1.53rem;
   height: 1.53rem;
   background-image: url(${polygon});
+  cursor: default;
 `;
 
 export const Receipt = styled.svg`
@@ -70,6 +70,7 @@ export const Receipt = styled.svg`
   height: 1.37rem;
   background-image: url(${receipt});
   filter: opacity(0.1);
+  cursor: not-allowed;
 `;
 
 export const Close = styled.svg`
@@ -80,7 +81,5 @@ export const Close = styled.svg`
   width: 1.53rem;
   height: 1.53rem;
   transform: translateY(3px);
-  /*   margin-top: 6px;
- */
   background-image: url(${close});
 `;

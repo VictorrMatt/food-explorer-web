@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container } from "../SignIn/styles";
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -66,6 +66,7 @@ export function SignUp() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
+          autocomplete="off"
         />
         <Button title="Criar conta" />
         <Link to="/">Já tenho uma conta</Link>

@@ -7,19 +7,19 @@ export function Header({ sideState, setSideState }) {
   return (
     <Container>
       {sideState ? (
-        <aside>
-          <Close onClick={() => setSideState(false)} />
+        <nav>
+          <Close tabindex="0" onClick={() => setSideState(false)} />
           <h2>Menu</h2>
-        </aside>
+        </nav>
       ) : (
         <>
-          <Hamburguer onClick={() => setSideState(true)} />
+          <Hamburguer tabindex="0" onClick={() => setSideState(true)} />
 
-          <div>
+          <nav>
             <Polygon />
             <h2>Food Explorer</h2>
             {user.role === "admin" && <span>admin</span>}
-          </div>
+          </nav>
 
           {user.role === "customer" && <Receipt />}
         </>
