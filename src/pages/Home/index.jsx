@@ -18,7 +18,7 @@ export function Home() {
   return (
     <Container>
       <Header sideState={sideState} setSideState={setSideState} />
-      <SideMenu menuIsOpen={sideState} />
+      <SideMenu sideState={sideState} setSideState={setSideState} />
     </Container>
   );
 }

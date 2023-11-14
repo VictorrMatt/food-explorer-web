@@ -40,7 +40,7 @@ export const Container = styled.header`
   }
 `;
 
-export const Hamburguer = styled.svg`
+export const Hamburger = styled.svg`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

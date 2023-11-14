@@ -66,7 +66,7 @@ export function SignUp() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          autocomplete="off"
+          autoComplete="off"
         />
         <Button title="Criar conta" />
         <Link to="/">Já tenho uma conta</Link>

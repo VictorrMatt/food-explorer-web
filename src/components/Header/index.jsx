@@ -1,19 +1,39 @@
-import { Container, Hamburguer, Polygon, Receipt, Close } from "./styles";
+import {
+  Container,
+  Hamburger as Hamburger,
+  Polygon,
+  Receipt,
+  Close,
+} from "./styles";
 import { useAuth } from "../../hooks/auth";
+
+import addKeyPressListener from "../../utils/addKeyPressListener";
 
 export function Header({ sideState, setSideState }) {
   const { user } = useAuth();
+
+  addKeyPressListener(setSideState);
 
   return (
     <Container>
       {sideState ? (
         <nav>
-          <Close tabindex="0" onClick={() => setSideState(false)} />
+          <Close
+            id="close"
+            tabIndex="0"
+            onClick={() => {
+              setSideState(false);
+            }}
+          />
           <h2>Menu</h2>
         </nav>
       ) : (
         <>
-          <Hamburguer tabindex="0" onClick={() => setSideState(true)} />
+          <Hamburger
+            id="hamburger"
+            tabIndex="0"
+            onClick={() => setSideState(true)}
+          />
 
           <nav>
             <Polygon />

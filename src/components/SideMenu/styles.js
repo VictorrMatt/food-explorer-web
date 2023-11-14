@@ -15,11 +15,6 @@ export const Container = styled.aside`
       width: 100%;
     }
 
-    ul {
-      /* display: flex;
-      flex-direction: column; */
-    }
-
     li {
       font-family: "Poppins", "Roboto";
       font-size: 1.5rem;
