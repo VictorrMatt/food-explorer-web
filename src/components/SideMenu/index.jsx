@@ -23,7 +23,10 @@ export function SideMenu({ sideState, setSideState }) {
   return (
     <Container style={{ display: sideState ? "block" : "none" }}>
       <nav>
-        <Input placeholder="Busque por pratos ou ingredientes" />
+        <Input
+          placeholder="Busque por pratos ou ingredientes"
+          onChange={(event) => console.log(event.target.value)}
+        />
         <ul>
           {user.role === "admin" && (
             <li tabIndex="0" onClick={() => handleItemClick("newDish")}>

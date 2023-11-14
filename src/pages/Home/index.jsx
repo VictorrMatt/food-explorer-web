@@ -11,10 +11,6 @@ export function Home() {
 
   const [sideState, setSideState] = useState(false);
 
-  function handleSignOut() {
-    signOut();
-  }
-
   return (
     <Container>
       <Header sideState={sideState} setSideState={setSideState} />

@@ -33,6 +33,7 @@ function AuthProvider({ children }) {
   }
 
   function signOut() {
+    console.log("fechando página")
     localStorage.removeItem("@foodexplorer:user");
 
     setData({});
