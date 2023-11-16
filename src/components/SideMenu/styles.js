@@ -4,6 +4,13 @@ export const Container = styled.aside`
   position: absolute;
   width: 100%;
   z-index: 1;
+  background-color: ${({ theme }) => theme.COLORS.DARK_400};
+  opacity: ${({ sidestate }) => (sidestate === "true" ? 1 : 0)};
+  transition: opacity 150ms ease-in-out;
+  pointer-events: ${({ sidestate }) =>
+    sidestate === "true" ? "auto" : "none"};
+  visibility: ${({ sidestate }) =>
+    sidestate === "true" ? "visible" : "hidden"};
 
   > nav {
     display: flex;

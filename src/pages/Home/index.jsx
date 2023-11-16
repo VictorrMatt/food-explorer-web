@@ -4,17 +4,21 @@ import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
 
 import { useAuth } from "../../hooks/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Home() {
-  const { signOut, user } = useAuth();
+  const { user } = useAuth();
 
-  const [sideState, setSideState] = useState(false);
+  const [sideState, setSideState] = useState("false");
 
+  useEffect(() => {
+    console.log("HOMER");
+  }, []);
   return (
     <Container>
-      <Header sideState={sideState} setSideState={setSideState} />
-      <SideMenu sideState={sideState} setSideState={setSideState} />
+      <Header sidestate={sideState} setsidestate={setSideState} />
+      <SideMenu sidestate={sideState} setsidestate={setSideState} />
+      
     </Container>
   );
 }

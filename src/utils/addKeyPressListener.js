@@ -9,18 +9,14 @@ const addKeyPressListener = (setSideState = false) => {
       const tabKeyWasPressed = event.keyCode === 13;
 
       const svgActions = {
-        hamburger: () => setSideState(true),
-        close: () => setSideState(false),
+        hamburger: () => setSideState("true"),
+        close: () => setSideState("false"),
       };
 
       const otherActions = {
         INPUT: () => console.log("INPUTTT"),
         default: () => activeElement.click(),
       };
-
-      if (activeElementName === "INPUT") {
-        return;
-      }
 
       if (tabKeyWasPressed && activeElementName === "svg") {
         const elementId = activeElement.id;

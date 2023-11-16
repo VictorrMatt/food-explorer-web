@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import addKeyPressListener from "../../utils/addKeyPressListener";
 
-export function SideMenu({ sideState, setSideState }) {
+export function SideMenu({ sidestate, setsidestate }) {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -18,10 +18,10 @@ export function SideMenu({ sideState, setSideState }) {
     }
   };
 
-  addKeyPressListener(setSideState);
+  addKeyPressListener(setsidestate);
 
   return (
-    <Container style={{ display: sideState ? "block" : "none" }}>
+    <Container sidestate={sidestate}>
       <nav>
         <Input
           placeholder="Busque por pratos ou ingredientes"

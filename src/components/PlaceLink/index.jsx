@@ -2,7 +2,7 @@ import { Container } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
-export function PlaceLink({ path, ...rest }) {
+export function PlaceLink({ ...props }) {
   const navigate = useNavigate();
 
   function handleNavigation(path) {
@@ -11,7 +11,7 @@ export function PlaceLink({ path, ...rest }) {
 
   return (
     <Container>
-      <a onClick={handleNavigation(path)} {...rest}></a>
+      <a onClick={handleNavigation(props.path)} {...rest}></a>
     </Container>
   );
 }

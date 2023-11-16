@@ -9,20 +9,20 @@ import { useAuth } from "../../hooks/auth";
 
 import addKeyPressListener from "../../utils/addKeyPressListener";
 
-export function Header({ sideState, setSideState }) {
+export function Header({ sidestate, setsidestate }) {
   const { user } = useAuth();
 
-  addKeyPressListener(setSideState);
+  addKeyPressListener(setsidestate);
 
   return (
-    <Container>
-      {sideState ? (
+    <Container sidestate={sidestate}>
+      {sidestate === "true" ? (
         <nav>
           <Close
             id="close"
             tabIndex="0"
             onClick={() => {
-              setSideState(false);
+              setsidestate("false");
             }}
           />
           <h2>Menu</h2>
@@ -32,7 +32,7 @@ export function Header({ sideState, setSideState }) {
           <Hamburger
             id="hamburger"
             tabIndex="0"
-            onClick={() => setSideState(true)}
+            onClick={() => setsidestate("true")}
           />
 
           <nav>

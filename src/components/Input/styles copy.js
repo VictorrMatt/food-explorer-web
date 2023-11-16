@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import searchImage from "../../assets/images/search.png";
+
+import { FiSearch } from "react-icons/fi";
 
 export const Container = styled.p`
   display: flex;
@@ -22,13 +23,13 @@ export const Container = styled.p`
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
 
-/*     background-image: ${(props) =>
-      props.custom ? `url(${searchImage})` : "none"};
     background-repeat: no-repeat;
-    background-position: left center;
-    background-position-x: 0.62rem;
-    background-size: 1.21rem;
-    padding-left: 2.5rem; */
+    background-position: 10px center;
+
+    /*     padding-left: ${({ search }) => (search === "true" ? "30px" : "")};
+ */
+    background-image: ${({ search }) =>
+      search == "true" ? `${FiSearch}` : "none"};
   }
 
   > input[type="text"]:focus-visible {
