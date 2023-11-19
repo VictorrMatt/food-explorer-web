@@ -9,6 +9,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   padding: 3.5rem 1.75rem 1.5rem 1.75rem;
+  min-width: 20rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
   h2 {
@@ -22,20 +23,26 @@ export const Container = styled.header`
     gap: 1rem;
   }
 
-  > nav:nth-child(2) {
-    display: flex;
-    position: relative;
-    margin: auto;
-    align-items: center;
-    gap: 0.5rem;
+  > .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 
-    span {
-      position: absolute;
-      left: calc(100% + 0.5rem);
-      font-size: 0.75rem;
-      font-weight: 400;
-      line-height: 1.2rem;
-      color: ${({ theme }) => theme.COLORS.CAKE_200};
+    nav {
+      display: flex;
+      position: relative;
+      margin: auto;
+      align-items: center;
+      gap: 0.5rem;
+
+      span {
+        position: absolute;
+        left: calc(100% + 0.5rem);
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.2rem;
+        color: ${({ theme }) => theme.COLORS.CAKE_200};
+      }
     }
   }
 `;

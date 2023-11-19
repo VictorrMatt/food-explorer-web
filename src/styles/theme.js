@@ -24,6 +24,13 @@ export default {
     TOMATO_300: "#AB222E",
     TOMATO_400: "#AB4D55",
 
+    BLUE: "#0099ff" /*É a cor do logo e dos textos rosas/azuis*/,
+    BLUE_100: "#82F3FF" /*É a cor dos preços nos produtos*/,
+    BLUE_200: "#001119" /*É a cor de fundo do form de login*/,
+    BLUE_300: "#192227" /*É a cor das bordas das tabelas*/,
+    BLUE_400: "#091E26" /*É a 1ª cor de fundo do gradiente na Home*/,
+    BLUE_500: "#00131C",
+
     CARROT_100: "#FBA94C",
 
     MINT_100: "#04D361",

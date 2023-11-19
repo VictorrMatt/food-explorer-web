@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const addKeyPressListener = (setSideState = false) => {
+const addKeyPressListener = (setsidestate = false) => {
   useEffect(() => {
     // O ouvinte de teclado será adicionado assim que o componente for montado
     const handleKeyPress = (event) => {
@@ -9,8 +9,8 @@ const addKeyPressListener = (setSideState = false) => {
       const tabKeyWasPressed = event.keyCode === 13;
 
       const svgActions = {
-        hamburger: () => setSideState("true"),
-        close: () => setSideState("false"),
+        hamburger: () => setsidestate("true"),
+        close: () => setsidestate("false"),
       };
 
       const otherActions = {

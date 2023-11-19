@@ -35,11 +35,13 @@ export function Header({ sidestate, setsidestate }) {
             onClick={() => setsidestate("true")}
           />
 
-          <nav>
-            <Polygon />
-            <h2>Food Explorer</h2>
-            {user.role === "admin" && <span>admin</span>}
-          </nav>
+          <div className="logo">
+            <nav>
+              <Polygon />
+              <h2>Food Explorer</h2>
+              {user.role === "admin" && <span>admin</span>}
+            </nav>
+          </div>
 
           {user.role === "customer" && <Receipt />}
         </>
