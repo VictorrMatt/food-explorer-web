@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.aside`
-  position: absolute;
+  /*   position: absolute;
+ */
   width: 100%;
+  height: 100vh;
   z-index: 1;
   background-color: ${({ theme }) => theme.COLORS.DARK_400};
   opacity: ${({ sidestate }) => (sidestate === "true" ? 1 : 0)};
@@ -11,6 +13,10 @@ export const Container = styled.aside`
     sidestate === "true" ? "auto" : "none"};
   visibility: ${({ sidestate }) =>
     sidestate === "true" ? "visible" : "hidden"};
+  display: ${({ sidestate }) =>
+    sidestate === "true"
+      ? "block"
+      : "none"}; /* Adicionando a propriedade display */
 
   > nav {
     display: flex;

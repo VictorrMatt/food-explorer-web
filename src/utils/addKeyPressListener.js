@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const addKeyPressListener = (setsidestate = false) => {
+const addKeyPressListener = (setsidestate = "false") => {
   useEffect(() => {
     // O ouvinte de teclado será adicionado assim que o componente for montado
     const handleKeyPress = (event) => {

@@ -15,7 +15,7 @@ export function Header({ sidestate, setsidestate }) {
   addKeyPressListener(setsidestate);
 
   return (
-    <Container sidestate={sidestate}>
+    <Container>
       {sidestate === "true" ? (
         <nav>
           <Close

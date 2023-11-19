@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 import polygon from "../../assets/icons/Polygon.svg";
-import hamburguer from "../../assets/icons/Menu.svg";
+import hamburger from "../../assets/icons/Menu.svg";
 import receipt from "../../assets/icons/Receipt.svg";
 import close from "../../assets/icons/Close.svg";
 
 export const Container = styled.header`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 3.5rem 1.75rem 1.5rem 1.75rem;
   min-width: 20rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
@@ -53,8 +54,8 @@ export const Hamburger = styled.svg`
   background-position: center;
   overflow: visible;
   width: 1.53rem;
-  height: 1.12rem;
-  background-image: url(${hamburguer});
+  height: 1.53rem;
+  background-image: url(${hamburger});
 `;
 
 export const Polygon = styled.svg`
