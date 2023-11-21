@@ -58,3 +58,7 @@ export const Gradient = styled.div`
     ${({ theme }) => theme.COLORS.BLUE_500} 100%
   );
 `;
+
+export const Content = styled.main`
+  margin: 0 1.3rem;
+`;

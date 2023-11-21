@@ -1,4 +1,4 @@
-import { Container, Banner, Gradient } from "./styles";
+import { Container, Banner, Gradient, Content } from "./styles";
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
@@ -20,6 +20,7 @@ export function Home() {
     <Container>
       <Header sidestate={sideState} setsidestate={setSideState} />
       <SideMenu sidestate={sideState} setsidestate={setSideState} />
+
       <Banner>
         <Gradient />
 
@@ -32,6 +33,8 @@ export function Home() {
           </div>
         </div>
       </Banner>
+
+      <Content>CONTEUDO</Content>
     </Container>
   );
 }
