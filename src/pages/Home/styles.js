@@ -11,7 +11,7 @@ export const Banner = styled.div`
   display: flex;
   position: relative;
   height: 7.5rem;
-  margin: 1rem auto;
+  margin: auto 1rem 2.5rem 1rem;
   min-width: clamp(18rem, 76vw, 21.43rem);
 
   .banner {
@@ -60,5 +60,16 @@ export const Gradient = styled.div`
 `;
 
 export const Content = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin: 0 1.3rem;
+  max-height: 70vh; /* Defina a altura máxima desejada para o Content */
+  overflow-y: auto;
+
+  /* WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
 `;
