@@ -3,18 +3,29 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 0 1.3rem;
 
-  > h2 {
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    font-family: Poppins;
-    font-size: 1.12rem;
-    font-weight: 500;
-    line-height: 140%; /* 25.2px */
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    h2 {
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      font-family: Poppins;
+      font-size: 1.12rem;
+      font-weight: 500;
+      line-height: 140%; /* 25.2px */
+    }
+
+    span {
+      color: ${({ theme }) => theme.COLORS.CAKE_200};
+      font-size: 1rem;
+    }
   }
 
-  > div {
+  > div:last-of-type {
     display: flex;
     width: 100%; /* Definindo a largura total */
     overflow-x: auto; /* Adicionando a capacidade de rolagem horizontal */

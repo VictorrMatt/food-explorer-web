@@ -37,29 +37,29 @@ export const Container = styled.aside`
       border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
       transition: border 350ms ease-in-out;
       cursor: pointer;
-    }
 
-    li:hover {
-      border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
+      &:hover {
+        border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+      }
 
-    li:focus-visible {
-      animation-name: focus-link;
-      animation-duration: 1s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-      outline: none;
+      &:focus-visible {
+        animation-name: focus-link;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        border-radius: 0.31rem;
+      }
     }
 
     @keyframes focus-link {
       0% {
-        border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+        outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
       }
       50% {
-        border-bottom: 0px solid ${({ theme }) => theme.COLORS.DARK_1000};
+        outline: 0px solid ${({ theme }) => theme.COLORS.DARK_1000};
       }
       100% {
-        border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+        outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
       }
     }
   }

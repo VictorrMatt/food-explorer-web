@@ -8,10 +8,11 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 13.12rem;
+  min-width: 13.12rem;
   height: 18.25rem;
   padding: 1.5rem;
   gap: 0.75rem;
+  margin: 0.1rem;
   border-radius: 0.5rem;
   border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
   background: ${({ theme }) => theme.COLORS.DARK_200};
@@ -35,6 +36,14 @@ export const Container = styled.div`
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:focus-visible {
+      animation-name: focus-link;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      border-radius: 0.31rem;
     }
   }
 
@@ -62,6 +71,7 @@ export const Container = styled.div`
 
     span {
       color: ${({ theme }) => theme.COLORS.CAKE_200};
+      font-size: 1rem;
     }
   }
 

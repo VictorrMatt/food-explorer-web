@@ -11,7 +11,7 @@ export const Banner = styled.div`
   display: flex;
   position: relative;
   height: 7.5rem;
-  margin: 0.5rem 1rem 1rem 1rem;
+  margin: 0.5rem 1rem 1.5rem 1rem;
   min-width: clamp(18rem, 76vw, 21.43rem);
 
   .banner {

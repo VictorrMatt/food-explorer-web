@@ -1,5 +1,4 @@
 import { Container } from "./styles";
-import { Content } from "../../pages/Home/styles";
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
@@ -25,9 +24,7 @@ export function New() {
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
 
-      <Content>
-        <BackButton tabindex="0" onClick={() => handleBack()} />
-      </Content>
+      <BackButton tabindex="0" onClick={() => handleBack()} />
     </Container>
   );
 }

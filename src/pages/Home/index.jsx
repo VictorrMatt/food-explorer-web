@@ -35,21 +35,21 @@ export function Home() {
       </Banner>
       <Content>
         <Section title="Refeições">
-          <Dish tabindex="0" />
-          <Dish tabindex="0" />
-          <Dish tabindex="0" />
+          <Dish tabIndex="0" onClick={() => console.log("item clicado")} />
+          <Dish tabIndex="0" />
+          <Dish tabIndex="0" />
         </Section>
 
         <Section title="Pratos principais">
-          <Dish tabindex="0" />
-          <Dish tabindex="0" />
-          <Dish tabindex="0" />
+          <Dish tabIndex="0" />
+          <Dish tabIndex="0" />
+          <Dish tabIndex="0" />
         </Section>
 
         <Section title="Bebidas">
-          <Dish tabindex="0" />
-          <Dish tabindex="0" />
-          <Dish tabindex="0" />
+          <Dish tabIndex="0" />
+          <Dish tabIndex="0" />
+          <Dish tabIndex="0" />
         </Section>
 
         <Footer />
