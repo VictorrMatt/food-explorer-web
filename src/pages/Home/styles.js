@@ -11,7 +11,7 @@ export const Banner = styled.div`
   display: flex;
   position: relative;
   height: 7.5rem;
-  margin: auto 1rem 2.5rem 1rem;
+  margin: 0.5rem 1rem 1rem 1rem;
   min-width: clamp(18rem, 76vw, 21.43rem);
 
   .banner {
@@ -63,7 +63,6 @@ export const Content = styled.main`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin: 0 1.3rem;
   max-height: 70vh; /* Defina a altura máxima desejada para o Content */
   overflow-y: auto;
 

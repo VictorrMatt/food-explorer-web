@@ -16,9 +16,6 @@ export function Home() {
 
   const [sideState, setSideState] = useState("false");
 
-  useEffect(() => {
-    console.log("HOMER");
-  }, []);
   return (
     <Container>
       <Header sidestate={sideState} setsidestate={setSideState} />
@@ -36,28 +33,27 @@ export function Home() {
           </div>
         </div>
       </Banner>
-
       <Content>
         <Section title="Refeições">
-          <Dish />
-          <Dish />
-          <Dish />
+          <Dish tabindex="0" />
+          <Dish tabindex="0" />
+          <Dish tabindex="0" />
         </Section>
 
         <Section title="Pratos principais">
-          <Dish />
-          <Dish />
-          <Dish />
+          <Dish tabindex="0" />
+          <Dish tabindex="0" />
+          <Dish tabindex="0" />
         </Section>
 
         <Section title="Bebidas">
-          <Dish />
-          <Dish />
-          <Dish />
+          <Dish tabindex="0" />
+          <Dish tabindex="0" />
+          <Dish tabindex="0" />
         </Section>
-      </Content>
 
-      <Footer />
+        <Footer />
+      </Content>
     </Container>
   );
 }
