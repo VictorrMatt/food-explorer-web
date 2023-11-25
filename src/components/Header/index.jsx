@@ -1,9 +1,15 @@
 import {
   Container,
-  Hamburger as Hamburger,
-  Polygon,
-  Receipt,
-  Close,
+  PolygonIcon,
+  LogoWriting,
+  NavClose,
+  CloseIcon,
+  NavCloseTitle,
+  HamburgerIcon,
+  LogoHeaderContainer,
+  NavPolygon,
+  AdminSpan,
+  ReceiptIcon,
 } from "./styles";
 import { useAuth } from "../../hooks/auth";
 
@@ -17,33 +23,33 @@ export function Header({ sidestate, setsidestate }) {
   return (
     <Container>
       {sidestate === "true" ? (
-        <nav>
-          <Close
+        <NavClose>
+          <CloseIcon
             id="close"
             tabIndex="0"
             onClick={() => {
               setsidestate("false");
             }}
           />
-          <h2>Menu</h2>
-        </nav>
+          <NavCloseTitle>Menu</NavCloseTitle>
+        </NavClose>
       ) : (
         <>
-          <Hamburger
+          <HamburgerIcon
             id="hamburger"
             tabIndex="0"
             onClick={() => setsidestate("true")}
           />
 
-          <div className="logo">
-            <nav>
-              <Polygon />
-              <h2>Food Explorer</h2>
-              {user.role === "admin" && <span>admin</span>}
-            </nav>
-          </div>
+          <LogoHeaderContainer>
+            <NavPolygon>
+              <PolygonIcon />
+              <LogoWriting>Food Explorer</LogoWriting>
+              {user.role === "admin" && <AdminSpan>admin</AdminSpan>}
+            </NavPolygon>
+          </LogoHeaderContainer>
 
-          {user.role === "customer" && <Receipt />}
+          {user.role === "customer" && <ReceiptIcon />}
         </>
       )}
     </Container>

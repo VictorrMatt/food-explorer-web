@@ -24,7 +24,7 @@ export function New() {
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
 
-      <BackButton tabindex="0" onClick={() => handleBack()} />
+      <BackButton tabIndex="0" onClick={() => handleBack()} />
     </Container>
   );
 }

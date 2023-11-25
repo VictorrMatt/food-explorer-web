@@ -1,11 +1,17 @@
-import { Container } from "../SignIn/styles";
+import {
+  Container,
+  LogoContainer,
+  LogoWriting,
+  SignInForm,
+  SignInTitle,
+} from "../SignIn/styles";
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-import { Polygon } from "../../components/Header/styles";
+import { PolygonIcon } from "../../components/Header/styles";
 
 import { api } from "../../services/api";
 
@@ -16,13 +22,17 @@ export function SignUp() {
 
   const navigate = useNavigate();
 
-  async function handleSignUp(event) {
+  function handleSignUp(event) {
     event.preventDefault();
 
     if ((!name, !email, !password)) {
       return alert("Por favor, preencha todos os campos.");
     }
 
+    signUp();
+  }
+
+  async function signUp() {
     try {
       await api.post("/users", { name, email, password }).then(() => {
         alert("Usuário cadastrado com sucesso!");
@@ -36,13 +46,13 @@ export function SignUp() {
 
   return (
     <Container>
-      <div>
-        <Polygon />
-        <h2>food explorer</h2>
-      </div>
+      <LogoContainer>
+        <PolygonIcon />
+        <LogoWriting>food explorer</LogoWriting>
+      </LogoContainer>
 
-      <form onSubmit={handleSignUp}>
-        <h2>Crie sua conta</h2>
+      <SignInForm onSubmit={handleSignUp}>
+        <SignInTitle>Faça seu login</SignInTitle>
         <Input
           id="seu_nome"
           placeholder="Exemplo: Maria da Silva"
@@ -70,7 +80,7 @@ export function SignUp() {
         />
         <Button title="Criar conta" />
         <Link to="/">Já tenho uma conta</Link>
-      </form>
+      </SignInForm>
     </Container>
   );
 }

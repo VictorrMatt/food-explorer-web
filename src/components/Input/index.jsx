@@ -1,10 +1,10 @@
-import { Container } from "./styles";
+import { Container, InputLabel, InputText } from "./styles";
 
 export function Input({ ...props }) {
   return (
     <Container>
-      {props.label && <label>{props.label}</label>}
-      <input type="text" {...props} />
+      {props.label && <InputLabel>{props.label}</InputLabel>}
+      <InputText type="text" {...props} />
     </Container>
   );
 }

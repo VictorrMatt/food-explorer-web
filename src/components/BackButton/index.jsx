@@ -1,10 +1,10 @@
-import { Container, CaretLeft } from "./styles";
+import { Container, CaretLeft, GoBackSpan } from "./styles";
 
 export function BackButton({ ...props }) {
   return (
     <Container {...props}>
       <CaretLeft />
-      <span>Voltar</span>
+      <GoBackSpan>Voltar</GoBackSpan>
     </Container>
   );
 }

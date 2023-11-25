@@ -7,14 +7,6 @@ export const Container = styled.a`
   align-items: center;
   width: min-content;
 
-  > span {
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    font-family: Poppins, Roboto;
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 140%; /* 33.6px */
-  }
-
   &:focus-visible {
     animation-name: focus-link;
     animation-duration: 1s;
@@ -44,4 +36,12 @@ export const CaretLeft = styled.svg`
   width: 1.53rem;
   height: 1.53rem;
   background-image: url(${CaretLeftIcon});
+`;
+
+export const GoBackSpan = styled.span`
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  font-family: Poppins, "Roboto";
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 140%; /* 33.6px */
 `;

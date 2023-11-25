@@ -6,46 +6,16 @@ export const Container = styled.div`
   max-width: 100%;
 `;
 
-export const Banner = styled.div`
+export const BannerContainer = styled.div`
   font-family: "Poppins", sans-serif;
   display: flex;
   position: relative;
   height: 7.5rem;
   margin: 0.5rem 1rem 1.5rem 1rem;
   min-width: clamp(18rem, 76vw, 21.43rem);
-
-  .banner {
-    position: absolute;
-    right: 0.5rem;
-    top: calc(50% + 0.5rem);
-    transform: translateY(-50%);
-  }
-
-  img {
-    position: relative;
-    left: -1.5rem;
-    width: 9rem;
-  }
-
-  .title {
-    max-width: 11.8rem;
-  }
-
-  h1 {
-    line-height: 140%;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-  }
-
-  p {
-    font-size: 0.75rem;
-    font-weight: 200;
-    line-height: 0.8rem;
-  }
 `;
 
-export const Gradient = styled.div`
+export const BannerGradient = styled.div`
   position: absolute;
   top: 1rem;
   left: 0;
@@ -59,7 +29,39 @@ export const Gradient = styled.div`
   );
 `;
 
-export const Content = styled.main`
+export const BannerImage = styled.img`
+  position: relative;
+  left: -1.5rem;
+  width: 9rem;
+`;
+
+export const ContentHolder = styled.div`
+  position: absolute;
+  right: 0.5rem;
+  top: calc(50% + 0.5rem);
+  transform: translateY(-50%);
+`;
+
+
+
+export const TextContainer = styled.div`
+  max-width: 11.8rem;
+`;
+
+export const Title = styled.h1`
+  line-height: 140%;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+`;
+
+export const Description = styled.p`
+  font-size: 0.75rem;
+  font-weight: 200;
+  line-height: 0.8rem;
+`;
+
+export const HomeContent = styled.main`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

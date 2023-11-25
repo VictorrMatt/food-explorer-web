@@ -1,11 +1,17 @@
-import { Container } from "./styles";
+import {
+  Container,
+  LogoContainer,
+  LogoWriting,
+  SignInForm,
+  SignInTitle,
+} from "./styles";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-import { Polygon } from "../../components/Header/styles";
+import { PolygonIcon } from "../../components/Header/styles";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -17,6 +23,7 @@ export function SignIn() {
 
   function handleSignIn(event) {
     event.preventDefault();
+
     if (!email || !password) {
       return alert("Por favor, preencha todos os campos.");
     }
@@ -26,13 +33,13 @@ export function SignIn() {
 
   return (
     <Container>
-      <div>
-        <Polygon />
-        <h2>food explorer</h2>
-      </div>
+      <LogoContainer>
+        <PolygonIcon />
+        <LogoWriting>food explorer</LogoWriting>
+      </LogoContainer>
 
-      <form onSubmit={handleSignIn}>
-        <h2>Faça seu login</h2>
+      <SignInForm onSubmit={handleSignIn}>
+        <SignInTitle>Faça seu login</SignInTitle>
         <Input
           id="email"
           placeholder="Exemplo: exemplo@exemplo.com.br"
@@ -52,7 +59,7 @@ export function SignIn() {
         />
         <Button title="Entrar" />
         <Link to="/register">Criar uma conta</Link>
-      </form>
+      </SignInForm>
     </Container>
   );
 }

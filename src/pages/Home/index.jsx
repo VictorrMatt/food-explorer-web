@@ -1,4 +1,14 @@
-import { Container, Banner, Gradient, Content } from "./styles";
+import {
+  Container,
+  BannerContainer,
+  BannerGradient,
+  BannerImage,
+  ContentHolder,
+  TextContainer,
+  Title,
+  Description,
+  HomeContent,
+} from "./styles";
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
@@ -21,19 +31,21 @@ export function Home() {
       <Header sidestate={sideState} setsidestate={setSideState} />
       <SideMenu sidestate={sideState} setsidestate={setSideState} />
 
-      <Banner>
-        <Gradient />
+      <BannerContainer>
+        <BannerGradient />
+        <BannerImage src={background} alt="Imagem de ingredientes" />
 
-        <img src={background} alt="Imagem de ingredientes" />
+        <ContentHolder>
+          <TextContainer>
+            <Title>Sabores inigualáveis</Title>
+            <Description>
+              Sinta o cuidado do preparo com ingredientes selecionados
+            </Description>
+          </TextContainer>
+        </ContentHolder>
+      </BannerContainer>
 
-        <div className="banner">
-          <div className="title">
-            <h1>Sabores inigualáveis</h1>
-            <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
-          </div>
-        </div>
-      </Banner>
-      <Content>
+      <HomeContent>
         <Section title="Refeições">
           <Dish tabIndex="0" onClick={() => console.log("item clicado")} />
           <Dish tabIndex="0" />
@@ -53,7 +65,7 @@ export function Home() {
         </Section>
 
         <Footer />
-      </Content>
+      </HomeContent>
     </Container>
   );
 }

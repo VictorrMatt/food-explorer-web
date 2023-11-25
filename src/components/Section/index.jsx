@@ -1,15 +1,21 @@
-import { Container } from "./styles";
+import {
+  Container,
+  SectionTitleContainer,
+  Title,
+  SymbolSpan,
+  SectionChildren,
+} from "./styles";
 
 export function Section({ ...props }, { ...rest }) {
   return (
     <Container {...rest}>
       {props.title && (
-        <div>
-          <h2>{props.title}</h2>
-          <span> &#8628;</span>
-        </div>
+        <SectionTitleContainer>
+          <Title>{props.title}</Title>
+          <SymbolSpan> &#8628;</SymbolSpan>
+        </SectionTitleContainer>
       )}
-      <div>{props.children}</div>
+      <SectionChildren>{props.children}</SectionChildren>
     </Container>
   );
 }

@@ -1,4 +1,12 @@
-import { Container } from "./styles";
+import {
+  Container,
+  DishEditButton,
+  DishImage,
+  DishTitleHolder,
+  Title,
+  SymbolSpan,
+  DishPrice,
+} from "./styles";
 import image from "../../assets/dishes/Mask group-1.png";
 
 import { useAuth } from "../../hooks/auth";
@@ -8,18 +16,20 @@ export function Dish({ ...props }) {
 
   const handleEdit = (event) => {
     event.stopPropagation(); // Impede a propagação do evento de clique para o contêiner pai
-    console.log("EDIT");
+    console.log(event.target);
   };
 
   return (
     <Container {...props}>
-      {user.role === "admin" && <input type="button" onClick={handleEdit} />}
-      <img src={image} />
-      <div>
-        <h2>Salada Ravanello</h2>
-        <span>&nbsp;&#8618;</span>
-      </div>
-      <p>R$ 49,97</p>
+      {user.role === "admin" && (
+        <DishEditButton type="button" onClick={handleEdit} />
+      )}
+      <DishImage src={image} />
+      <DishTitleHolder>
+        <Title>Salada Ravanello</Title>
+        <SymbolSpan>&nbsp;&#8618;</SymbolSpan>
+      </DishTitleHolder>
+      <DishPrice>R$ 49,97</DishPrice>
     </Container>
   );
 }

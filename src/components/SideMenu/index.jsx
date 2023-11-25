@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, SideMenuNav, SideMenuItem } from "./styles";
 import { Input } from "../../components/Input";
 import { useAuth } from "../../hooks/auth";
 
@@ -23,22 +23,22 @@ export function SideMenu({ sidestate, setsidestate }) {
 
   return (
     <Container sidestate={sidestate}>
-      <nav>
+      <SideMenuNav>
         <Input
           placeholder="Busque por pratos ou ingredientes"
           onChange={(event) => console.log(event.target.value)}
         />
         <ul>
           {user.role === "admin" && (
-            <li tabIndex="0" onClick={() => handleNewDish()}>
+            <SideMenuItem tabIndex="0" onClick={() => handleNewDish()}>
               Novo prato
-            </li>
+            </SideMenuItem>
           )}
-          <li tabIndex="0" onClick={() => handleSignOut()}>
+          <SideMenuItem tabIndex="0" onClick={() => handleSignOut()}>
             Sair
-          </li>
+          </SideMenuItem>
         </ul>
-      </nav>
+      </SideMenuNav>
     </Container>
   );
 }
