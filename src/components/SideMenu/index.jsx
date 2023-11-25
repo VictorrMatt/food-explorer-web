@@ -10,7 +10,14 @@ export function SideMenu({ sidestate, setsidestate }) {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
+  const pathname = window.location.pathname;
+  const disableCreateDish = pathname === "/new";
+
   const handleNewDish = () => {
+    if (pathname === "/new") {
+      return;
+    }
+
     navigate("/new");
   };
 
@@ -30,7 +37,11 @@ export function SideMenu({ sidestate, setsidestate }) {
         />
         <ul>
           {user.role === "admin" && (
-            <SideMenuItem tabIndex="0" onClick={() => handleNewDish()}>
+            <SideMenuItem
+              tabIndex="0"
+              disabled={disableCreateDish}
+              onClick={() => handleNewDish()}
+            >
               Novo prato
             </SideMenuItem>
           )}

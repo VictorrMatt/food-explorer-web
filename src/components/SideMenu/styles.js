@@ -34,14 +34,11 @@ export const SideMenuNav = styled.nav`
   flex-direction: column;
   gap: 2.25rem;
   margin: 2.25rem 1.75rem;
-
-  > input[type="text"] {
-    width: 100%;
-  }
 `;
 
 export const SideMenuItem = styled.li`
   font-family: "Poppins", "Roboto";
+  color: ${({ disabled, theme }) => disabled && theme.COLORS.LIGHT_500};
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 140%;
