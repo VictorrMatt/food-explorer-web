@@ -37,12 +37,12 @@ export function Dish({ ...props }) {
       ) : (
         <DishLoveButton type="button" onClick={handleLoveDish} />
       )}
-      <DishImage src={props.imageUrl} />
+      <DishImage src={image} />
       <DishTitleHolder>
-        <Title>{props.title}</Title>
+        <Title>Salada Ravanello</Title>
         <SymbolSpan>&nbsp;&#8618;</SymbolSpan>
       </DishTitleHolder>
-      <DishPrice>{props.price}</DishPrice>
+      <DishPrice>R$ 49,97</DishPrice>
       {user.role === "customer" && (
         <>
           <Amount>

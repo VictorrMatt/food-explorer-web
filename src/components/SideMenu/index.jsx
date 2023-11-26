@@ -15,6 +15,7 @@ export function SideMenu({ sidestate, setsidestate }) {
 
   const handleNewDish = () => {
     if (pathname === "/new") {
+      setsidestate("false");
       return;
     }
 

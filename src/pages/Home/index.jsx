@@ -21,6 +21,8 @@ import { useEffect, useState } from "react";
 
 import background from "../../assets/images/detail.png";
 
+import randomPlate from "../../assets/dishes/Mask group-10.png";
+
 export function Home() {
   const { user } = useAuth();
 
@@ -47,7 +49,13 @@ export function Home() {
 
       <HomeContent>
         <Section title="Refeições">
-          <Dish tabIndex="0" onClick={() => console.log("item clicado")} />
+          <Dish
+            tabIndex="0"
+            imageUrl={randomPlate}
+            title="Prato Massa"
+            price="R$99.99"
+            onClick={() => console.log("item clicado")}
+          />
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
         </Section>

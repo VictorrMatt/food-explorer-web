@@ -67,7 +67,10 @@ export const PolygonIcon = styled.svg`
   width: 1.53rem;
   height: 1.53rem;
   background-image: url(${polygon});
-  cursor: default;
+  
+  &:hover {
+    cursor: default;
+  }
 `;
 
 export const LogoWriting = styled.h2`
@@ -94,5 +97,8 @@ export const ReceiptIcon = styled.svg`
   height: 1.37rem;
   background-image: url(${receipt});
   filter: opacity(0.1);
-  cursor: not-allowed;
+
+  &:hover {
+    cursor: not-allowed;
+  }
 `;
