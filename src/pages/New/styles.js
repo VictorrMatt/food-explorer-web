@@ -15,6 +15,18 @@ export const Container = styled.div`
       outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
     }
   }
+
+  @keyframes focus-button {
+    0% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+    50% {
+      outline: 0px solid ${({ theme }) => theme.COLORS.TOMATO_400};
+    }
+    100% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+  }
 `;
 
 export const CreationForm = styled.form`
@@ -22,6 +34,9 @@ export const CreationForm = styled.form`
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1.5rem;
+  max-height: 40rem;
+  overflow: auto;
+  padding-bottom: 1.5rem;
 
   > p {
     display: flex;
@@ -103,8 +118,71 @@ export const Select = styled.select`
   background-position-y: center;
   background-position-x: calc(100% - 0.87rem);
 
+  > option {
+    font-size: 1rem;
+    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  }
+
   &:focus-visible {
     animation-name: focus-link;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+`;
+
+export const MarkersContainer = styled.div`
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  background-color: ${({ theme }) => theme.COLORS.DARK_800};
+  padding: 0.5rem;
+  gap: 0.7rem;
+  overflow-y: hidden;
+  border-radius: 0.3rem;
+`;
+
+export const Textarea = styled.textarea`
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 100%;
+  padding: 0.87rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: ${({ theme }) => theme.COLORS.DARK_900};
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
+  }
+  &:-ms-input-placeholder {
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
+  }
+
+  &:focus-visible {
+    animation-name: focus-link;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+`;
+
+export const SaveButton = styled.input`
+  display: flex;
+  padding: 0.75rem 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  border: none;
+  border-radius: 0.31rem;
+  opacity: 0.8;
+  background: ${({ theme }) => theme.COLORS.TOMATO_400};
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+  &:focus-visible {
+    animation-name: focus-button;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;

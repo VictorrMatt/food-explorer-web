@@ -26,7 +26,6 @@ export const CloseIcon = styled.svg`
   overflow: visible;
   width: 1.53rem;
   height: 1.53rem;
-  transform: translateY(3px);
   background-image: url(${close});
 `;
 
@@ -67,7 +66,7 @@ export const PolygonIcon = styled.svg`
   width: 1.53rem;
   height: 1.53rem;
   background-image: url(${polygon});
-  
+
   &:hover {
     cursor: default;
   }
