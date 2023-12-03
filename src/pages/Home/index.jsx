@@ -51,7 +51,7 @@ export function Home() {
         <Section title="Refeições">
           <Dish
             tabIndex="0"
-            imageUrl={randomPlate}
+            imageurl={randomPlate}
             title="Prato Massa"
             price="R$99.99"
             onClick={() => console.log("item clicado")}

@@ -42,8 +42,6 @@ export const ContentHolder = styled.div`
   transform: translateY(-50%);
 `;
 
-
-
 export const TextContainer = styled.div`
   max-width: 11.8rem;
 `;
@@ -70,7 +68,7 @@ export const HomeContent = styled.main`
 
   /* WebKit (Chrome, Safari) */
   &::-webkit-scrollbar {
-    height: 0;
-    width: 0;
+    /* height: 0;
+    width: 0; */
   }
 `;

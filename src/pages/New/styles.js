@@ -152,6 +152,7 @@ export const Textarea = styled.textarea`
   border-radius: 0.3rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  resize: none;
 
   &::placeholder {
     color: ${({ theme }) => theme.COLORS.LIGHT_500};

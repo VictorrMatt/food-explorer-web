@@ -27,8 +27,12 @@ import addKeyPressListener from "../../utils/addKeyPressListener";
 export function New() {
   const [sidestate, setsidestate] = useState("false");
 
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("mainDish");
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
 
   const navigate = useNavigate();
 
@@ -47,6 +51,26 @@ export function New() {
     setTags((prevState) => prevState.filter((link) => link !== deleted));
   }
 
+  const handleKeyPress = (e) => {
+    const objectType = e.target.type;
+
+    const isSelect = e.target.id === "select";
+    if (isSelect) {
+      return;
+    }
+
+    if (e.key === "Enter" && objectType != "button") {
+      e.preventDefault();
+      return;
+    }
+  };
+
+  const showData = () => {
+    console.log(
+      `Name: ${name} Category: ${category} Tags: ${tags} Price: ${price} Description: ${description}`
+    );
+  };
+
   addKeyPressListener(setsidestate);
 
   return (
@@ -55,7 +79,7 @@ export function New() {
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
       <SectionSendDish>
         <BackButton tabIndex="0" onClick={() => handleBack()} />
-        <CreationForm>
+        <CreationForm onKeyPress={handleKeyPress}>
           <Title>Novo prato</Title>
           <CustomInputContainer>
             <GenericLabel htmlFor="customInput">Imagem do prato</GenericLabel>
@@ -69,10 +93,18 @@ export function New() {
             id="name"
             label="Nome"
             placeholder="Ex.: Salada Ceasar"
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
           />
           <CustomInputContainer>
             <GenericLabel htmlFor="select">Categoria</GenericLabel>
-            <Select id="select">
+            <Select
+              id="select"
+              onChange={() => {
+                setCategory(event.target.value);
+              }}
+            >
               <option value="meal" defaultValue>
                 Refeição
               </option>
@@ -103,7 +135,26 @@ export function New() {
               />
             </MarkersContainer>
           </CustomInputContainer>
-          <Input type="text" id="price" label="Preço" placeholder="R$ 00,00" />
+          <Input
+            type="text"
+            id="price"
+            label="Preço"
+            placeholder="R$ 00,00"
+            onChange={(event) => {
+              if (price === "") {
+                setPrice("R$ " + event.target.value);
+                return;
+              }
+
+              setPrice(event.target.value);
+            }}
+            onFocus={() => {
+              if (price === "") {
+                setPrice("R$ ");
+              }
+            }}
+            value={price}
+          />
           <CustomInputContainer>
             <GenericLabel htmlFor="description">Descrição</GenericLabel>
             <Textarea
@@ -112,9 +163,18 @@ export function New() {
               rows="5"
               cols="33"
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              onChange={(event) => {
+                setDescription(event.target.value);
+              }}
             ></Textarea>
           </CustomInputContainer>
-          <SaveButton type="button" value="Salvar alterações" />
+          <SaveButton
+            type="button"
+            value="Salvar alterações"
+            onClick={() => {
+              showData();
+            }}
+          />
         </CreationForm>
       </SectionSendDish>
     </Container>

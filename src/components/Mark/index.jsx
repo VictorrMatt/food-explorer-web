@@ -32,7 +32,11 @@ export function Mark({ $isNew = false, value, onClick, ...rest }) {
             }}
           />
         ) : (
-          <CloseIcon />
+          <CloseIcon
+            onClick={() => {
+              prevent();
+            }}
+          />
         )}
       </IconHolder>
     </Container>

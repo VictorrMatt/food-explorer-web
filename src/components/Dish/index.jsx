@@ -37,7 +37,7 @@ export function Dish({ ...props }) {
       ) : (
         <DishLoveButton type="button" onClick={handleLoveDish} />
       )}
-      <DishImage src={props.imageUrl} />
+      <DishImage src={props.imageurl} />
       <DishTitleHolder>
         <Title>{props.title}</Title>
         <SymbolSpan>&nbsp;&#8618;</SymbolSpan>
