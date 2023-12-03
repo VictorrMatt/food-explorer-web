@@ -13,16 +13,19 @@ import {
   PlusIcon,
   DishButton,
 } from "./styles";
-import image from "../../assets/dishes/Mask group-1.png";
 
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 export function Dish({ ...props }) {
   const { user } = useAuth();
 
+  const navigate = useNavigate();
+
   const handleEditDish = (event) => {
     event.stopPropagation(); // Impede a propagação do evento de clique para o contêiner pai
-    console.log(event.target);
+
+    navigate("/edit");
   };
 
   const handleLoveDish = (event) => {

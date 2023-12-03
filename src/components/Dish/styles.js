@@ -67,8 +67,8 @@ export const DishEditButton = styled.button`
   background-repeat: no-repeat;
   background-size: contain;
 
-  filter: opacity(0.1);
-
+/*   filter: opacity(0.1);
+ */
   &:hover {
     cursor: pointer;
   }
