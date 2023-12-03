@@ -27,6 +27,18 @@ export const Container = styled.div`
       outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
     }
   }
+
+  @keyframes alert {
+    0% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+    50% {
+      outline: 0px solid ${({ theme }) => theme.COLORS.TOMATO_100};
+    }
+    100% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+  }
 `;
 
 export const CreationForm = styled.form`

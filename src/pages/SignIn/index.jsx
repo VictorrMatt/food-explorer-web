@@ -47,6 +47,7 @@ export function SignIn() {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
+          value={email}
         />
         <Input
           id="senha"
@@ -56,6 +57,7 @@ export function SignIn() {
             setPassword(e.target.value);
           }}
           autoComplete="off"
+          value={password}
         />
         <Button title="Entrar" />
         <Link to="/register">Criar uma conta</Link>

@@ -40,11 +40,10 @@ export default createGlobalStyle`
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
-    border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_500};
+    border: none;
     -webkit-text-fill-color: ${({ theme }) =>
-      theme.COLORS.LIGHT_500} !important;
-    -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) =>
-      theme.COLORS.DARK_900} inset;
+      theme.COLORS.LIGHT_100} !important;
+    -webkit-box-shadow: transparent;
     transition: background-color 5000s ease-in-out 0s;
   }
 

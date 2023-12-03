@@ -22,11 +22,14 @@ import { useEffect, useState } from "react";
 import background from "../../assets/images/detail.png";
 
 import randomPlate from "../../assets/dishes/Mask group-10.png";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
   const { user } = useAuth();
 
   const [sideState, setSideState] = useState("false");
+
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -54,7 +57,7 @@ export function Home() {
             imageurl={randomPlate}
             title="Prato Massa"
             price="R$99.99"
-            onClick={() => console.log("item clicado")}
+            onClick={() => navigate("/details")}
           />
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
