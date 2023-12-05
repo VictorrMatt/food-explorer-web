@@ -12,7 +12,7 @@ import {
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
-import { Section } from "../../components/Section";
+import { TitleSection } from "../../components/TitleSection";
 import { Dish } from "../../components/Dish";
 import { Footer } from "../../components/Footer";
 
@@ -51,7 +51,7 @@ export function Home() {
       </BannerContainer>
 
       <HomeContent>
-        <Section title="Refeições">
+        <TitleSection title="Refeições">
           <Dish
             tabIndex="0"
             imageurl={randomPlate}
@@ -61,19 +61,19 @@ export function Home() {
           />
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
-        </Section>
+        </TitleSection>
 
-        <Section title="Pratos principais">
+        <TitleSection title="Pratos principais">
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
-        </Section>
+        </TitleSection>
 
-        <Section title="Bebidas">
+        <TitleSection title="Bebidas">
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
           <Dish tabIndex="0" />
-        </Section>
+        </TitleSection>
 
         <Footer />
       </HomeContent>

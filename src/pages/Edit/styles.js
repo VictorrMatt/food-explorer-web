@@ -3,31 +3,7 @@ import styled from "styled-components";
 import UploadIcon from "../../assets/icons/UploadSimple.svg";
 import ChevronIcon from "../../assets/icons/chevron-down.svg";
 
-export const Container = styled.div`
-  @keyframes focus-link {
-    0% {
-      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-    50% {
-      outline: 0px solid ${({ theme }) => theme.COLORS.DARK_400};
-    }
-    100% {
-      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-  }
-
-  @keyframes focus-button {
-    0% {
-      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-    50% {
-      outline: 0px solid ${({ theme }) => theme.COLORS.TOMATO_400};
-    }
-    100% {
-      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-  }
-`;
+export const Container = styled.div``;
 
 export const CreationForm = styled.form`
   display: flex;
@@ -42,10 +18,6 @@ export const CreationForm = styled.form`
     display: flex;
     flex-direction: column;
   }
-`;
-
-export const SectionSendDish = styled.div`
-  margin: 1.2rem 1.3rem;
 `;
 
 export const Title = styled.h2`
@@ -95,7 +67,7 @@ export const LabelForInput = styled.label`
   background-position-x: 0.87rem;
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -125,7 +97,7 @@ export const Select = styled.select`
   }
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -162,28 +134,7 @@ export const Textarea = styled.textarea`
   }
 
   &:focus-visible {
-    animation-name: focus-link;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-  }
-`;
-
-export const SaveButton = styled.input`
-  display: flex;
-  padding: 0.75rem 2rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  align-self: stretch;
-  border: none;
-  border-radius: 0.31rem;
-  opacity: 0.8;
-  background: ${({ theme }) => theme.COLORS.TOMATO_400};
-  color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
-  &:focus-visible {
-    animation-name: focus-button;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -192,4 +143,5 @@ export const SaveButton = styled.input`
 
 export const ButtonsContainer = styled.div`
   display: flex;
+  gap: 1rem;
 `;

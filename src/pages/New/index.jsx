@@ -1,7 +1,6 @@
 import {
   Container,
   CreationForm,
-  SectionSendDish,
   Title,
   CustomInputContainer,
   GenericLabel,
@@ -10,11 +9,12 @@ import {
   Select,
   MarkersContainer,
   Textarea,
-  SaveButton,
-} from "./styles";
+} from "../Edit/styles";
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
+import { MainContent } from "../../components/MainContent";
+import { Button } from "../../components/Button";
 import { BackButton } from "../../components/BackButton";
 import { Input } from "../../components/Input";
 import { Mark } from "../../components/Mark";
@@ -36,7 +36,8 @@ export function New() {
 
   const navigate = useNavigate();
 
-  const handleBack = () => {
+  const handleBack = (e) => {
+    e.stopPropagation();
     navigate(-1);
   };
 
@@ -77,8 +78,8 @@ export function New() {
     <Container>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
-      <SectionSendDish>
-        <BackButton tabIndex="0" onClick={() => handleBack()} />
+      <MainContent>
+        <BackButton model="app_1" tabIndex="0" onClick={handleBack} />
         <CreationForm onKeyPress={handleKeyPress}>
           <Title>Novo prato</Title>
           <CustomInputContainer>
@@ -168,15 +169,16 @@ export function New() {
               }}
             ></Textarea>
           </CustomInputContainer>
-          <SaveButton
+          <Button
             type="button"
+            model="others"
             value="Salvar alterações"
             onClick={() => {
               showData();
             }}
           />
         </CreationForm>
-      </SectionSendDish>
+      </MainContent>
     </Container>
   );
 }

@@ -6,7 +6,7 @@ import {
   SectionChildren,
 } from "./styles";
 
-export function Section({ ...props }, { ...rest }) {
+export function TitleSection({ ...props }, { ...rest }) {
   return (
     <Container {...rest}>
       {props.title && (

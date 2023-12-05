@@ -21,13 +21,13 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.COLORS.DARK_200};
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
   }
 
-  @keyframes focus-link {
+  @keyframes focus {
     0% {
       outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
     }
@@ -74,7 +74,7 @@ export const DishEditButton = styled.button`
   }
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -104,7 +104,7 @@ export const DishLoveButton = styled.button`
   }
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -177,7 +177,7 @@ export const MinusIcon = styled.button`
   }
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -213,7 +213,7 @@ export const PlusIcon = styled.button`
   }
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;

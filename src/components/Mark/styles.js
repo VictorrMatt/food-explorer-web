@@ -14,18 +14,6 @@ export const Container = styled.div`
     $isNew ? `2px dashed ${theme.COLORS.LIGHT_500}` : "none"};
   background-color: ${({ theme, $isNew }) =>
     $isNew ? "transparent" : theme.COLORS.LIGHT_600};
-
-  @keyframes focus-link {
-    0% {
-      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-    50% {
-      outline: 0px solid ${({ theme }) => theme.COLORS.DARK_400};
-    }
-    100% {
-      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-  }
 `;
 
 export const InputText = styled.input`
@@ -36,7 +24,7 @@ export const InputText = styled.input`
   padding: 2px;
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -56,7 +44,7 @@ export const PlusIcon = styled.button`
   border: none;
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -76,7 +64,7 @@ export const CloseIcon = styled.button`
   border: none;
 
   &:focus-visible {
-    animation-name: focus-link;
+    animation-name: focus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;

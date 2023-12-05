@@ -1,7 +1,6 @@
 import {
   Container,
   CreationForm,
-  SectionSendDish,
   Title,
   CustomInputContainer,
   GenericLabel,
@@ -10,12 +9,13 @@ import {
   Select,
   MarkersContainer,
   Textarea,
-  SaveButton,
   ButtonsContainer,
 } from "./styles";
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
+import { MainContent } from "../../components/MainContent";
+import { Button } from "../../components/Button";
 import { BackButton } from "../../components/BackButton";
 import { Input } from "../../components/Input";
 import { Mark } from "../../components/Mark";
@@ -37,7 +37,8 @@ export function Edit() {
 
   const navigate = useNavigate();
 
-  const handleBack = () => {
+  const handleBack = (e) => {
+    e.stopPropagation();
     navigate(-1);
   };
 
@@ -78,8 +79,8 @@ export function Edit() {
     <Container>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
-      <SectionSendDish>
-        <BackButton tabIndex="0" onClick={() => handleBack()} />
+      <MainContent>
+        <BackButton model="app_1" tabIndex="0" onClick={handleBack} />
         <CreationForm onKeyPress={handleKeyPress}>
           <Title>Editar prato</Title>
           <CustomInputContainer>
@@ -170,15 +171,18 @@ export function Edit() {
             ></Textarea>
           </CustomInputContainer>
           <ButtonsContainer>
-            <SaveButton
+            <Button
               type="button"
+              model="app_1"
               value="Excluir prato"
               onClick={() => {
                 showData();
               }}
             />
-            <SaveButton
+
+            <Button
               type="button"
+              model="app_2"
               value="Salvar alterações"
               onClick={() => {
                 showData();
@@ -186,7 +190,7 @@ export function Edit() {
             />
           </ButtonsContainer>
         </CreationForm>
-      </SectionSendDish>
+      </MainContent>
     </Container>
   );
 }

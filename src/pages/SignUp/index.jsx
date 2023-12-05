@@ -78,7 +78,7 @@ export function SignUp() {
           }}
           autoComplete="off"
         />
-        <Button title="Criar conta" />
+        <Button type="submit" model="others" value="Criar conta" />
         <Link to="/">Já tenho uma conta</Link>
       </SignInForm>
     </Container>

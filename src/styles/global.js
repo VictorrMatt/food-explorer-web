@@ -48,7 +48,7 @@ export default createGlobalStyle`
   }
 
   svg:focus-visible {
-        animation-name: focus-svg;
+        animation-name: focus;
         animation-duration: 1s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;
@@ -60,15 +60,15 @@ export default createGlobalStyle`
     outline: none;
   }
 
-  @keyframes focus-svg {
-      0% {
-        outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-      }
-      50% {
-        outline: 0px solid ${({ theme }) => theme.COLORS.DARK_400};
-      }
-      100% {
-        outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-      }
+  @keyframes focus {
+    0% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
     }
+    50% {
+      outline: 0px solid ${({ theme }) => theme.COLORS.DARK_400};
+    }
+    100% {
+      outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
+  }
 `;

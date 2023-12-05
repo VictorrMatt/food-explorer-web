@@ -59,7 +59,7 @@ export function SignIn() {
           autoComplete="off"
           value={password}
         />
-        <Button title="Entrar" />
+        <Button type="submit" model="others" value="Entrar" />
         <Link to="/register">Criar uma conta</Link>
       </SignInForm>
     </Container>

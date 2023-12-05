@@ -63,12 +63,6 @@ export const HomeContent = styled.main`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-height: 70vh; /* Defina a altura máxima desejada para o Content */
+  max-height: 70vh;
   overflow-y: auto;
-
-  /* WebKit (Chrome, Safari) */
-  &::-webkit-scrollbar {
-    /* height: 0;
-    width: 0; */
-  }
 `;
