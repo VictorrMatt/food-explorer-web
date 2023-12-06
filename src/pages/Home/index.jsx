@@ -5,7 +5,7 @@ import {
   BannerImage,
   ContentHolder,
   TextContainer,
-  Title,
+  BannerTitle,
   Description,
   HomeContent,
 } from "./styles";
@@ -43,7 +43,7 @@ export function Home() {
 
         <ContentHolder>
           <TextContainer>
-            <Title>Sabores inigualáveis</Title>
+            <BannerTitle>Sabores inigualáveis</BannerTitle>
             <Description>
               Sinta o cuidado do preparo com ingredientes selecionados
             </Description>

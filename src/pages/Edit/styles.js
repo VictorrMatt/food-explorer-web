@@ -3,8 +3,6 @@ import styled from "styled-components";
 import UploadIcon from "../../assets/icons/UploadSimple.svg";
 import ChevronIcon from "../../assets/icons/chevron-down.svg";
 
-export const Container = styled.div``;
-
 export const EditContent = styled.div`
   margin: 0 1.2rem;
 `;

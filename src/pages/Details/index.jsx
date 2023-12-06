@@ -4,9 +4,10 @@ import {
   DishImage,
   Holder,
   TextContainer,
-  Title,
+  DishTitle,
   SpanDescription,
   TagContainer,
+  Tag,
 } from "./styles";
 
 import { Header } from "../../components/Header";
@@ -16,8 +17,8 @@ import { BackButton } from "../../components/BackButton";
 import { ScrollSection } from "../../components/ScrollSection";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
-import { Tag } from "../../components/Tag";
-
+/* import { Tag } from "../../components/Tag";
+ */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +52,7 @@ export function Details() {
           <Holder>
             <DishImage src={massa} />
             <TextContainer>
-              <Title>Salada Ravanello</Title>
+              <DishTitle>Salada Ravanello</DishTitle>
               <SpanDescription>
                 Rabanetes, folhas verdes e molho agridoce salpicados com
                 gergelim.
@@ -59,7 +60,7 @@ export function Details() {
               <TagContainer>
                 {tags &&
                   Object.entries(tags).map(([key, value]) => (
-                    <Tag key={key} title={value} />
+                    <Tag key={key}>{value}</Tag>
                   ))}
               </TagContainer>
             </TextContainer>

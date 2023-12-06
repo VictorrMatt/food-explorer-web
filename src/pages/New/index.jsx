@@ -1,5 +1,4 @@
 import {
-  Container,
   EditContent,
   CreationForm,
   Title,
@@ -75,7 +74,7 @@ export function New() {
   addKeyPressListener(setsidestate);
 
   return (
-    <Container>
+    <>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
       <BackButton tabIndex="0" onClick={handleBack} />
@@ -179,6 +178,6 @@ export function New() {
           />
         </CreationForm>
       </EditContent>
-    </Container>
+    </>
   );
 }

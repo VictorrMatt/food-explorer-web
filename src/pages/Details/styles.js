@@ -33,7 +33,7 @@ export const TextContainer = styled.div`
   text-align: center;
 `;
 
-export const Title = styled.h2`
+export const DishTitle = styled.h2`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   font-family: Poppins;
   font-size: 1.69rem;
@@ -54,4 +54,18 @@ export const TagContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+`;
+
+export const Tag = styled.p`
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+
+  border-radius: 0.31rem;
+  background: ${({ theme }) => theme.COLORS.DARK_1000};
+
+  font-family: Poppins;
+  font-size: 0.87rem;
+  font-weight: 500;
+  line-height: 171.429%;
 `;
