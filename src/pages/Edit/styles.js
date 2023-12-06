@@ -11,9 +11,9 @@ export const CreationForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 1.5rem;
-  max-height: 40rem;
+  max-height: 42rem;
   overflow: auto;
+  padding-bottom: 2rem;
 
   > p {
     display: flex;

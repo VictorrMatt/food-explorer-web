@@ -17,8 +17,6 @@ import { BackButton } from "../../components/BackButton";
 import { ScrollSection } from "../../components/ScrollSection";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
-/* import { Tag } from "../../components/Tag";
- */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -47,7 +45,7 @@ export function Details() {
       <Header sidestate={sideState} setsidestate={setSideState} />
       <SideMenu sidestate={sideState} setsidestate={setSideState} />
       <BackButton tabIndex="0" onClick={handleBack} />
-      <ScrollSection>
+      <ScrollSection vh="81vh">
         <DetailsContent>
           <Holder>
             <DishImage src={massa} />

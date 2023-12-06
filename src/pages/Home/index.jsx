@@ -51,7 +51,7 @@ export function Home() {
         </ContentHolder>
       </BannerContainer>
 
-      <ScrollSection>
+      <ScrollSection vh="70vh">
         <HomeContent>
           <TitleSection title="Refeições">
             <Dish

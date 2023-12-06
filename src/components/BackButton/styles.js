@@ -8,7 +8,7 @@ export const Container = styled.a`
   width: min-content;
   margin: 1px;
   align-self: flex-start;
-  margin: 1.2rem 0 0 1.3rem;
+  margin: 1.2rem 0 1rem 1.3rem;
 
   &:focus-visible {
     animation-name: focus;

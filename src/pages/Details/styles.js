@@ -24,20 +24,23 @@ export const Holder = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 1.2rem 1.3rem 0;
+  margin: 0 1.3rem;
+  gap: 1.5rem;
 `;
 
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 export const DishTitle = styled.h2`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   font-family: Poppins;
   font-size: 1.69rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 140%; /* 37.858px */
 `;
 
@@ -45,7 +48,9 @@ export const SpanDescription = styled.p`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   font-family: Poppins;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
+  max-height: 3.5rem;
+  overflow-y: auto;
   line-height: 140%; /* 22.715px */
 `;
 
@@ -66,6 +71,6 @@ export const Tag = styled.p`
 
   font-family: Poppins;
   font-size: 0.87rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 171.429%;
 `;
