@@ -5,7 +5,7 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 export const Container = styled.footer`
   display: flex;
   height: 4.81rem;
-
+  width: 100%;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;

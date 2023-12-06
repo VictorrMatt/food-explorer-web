@@ -1,5 +1,5 @@
 import { Container } from "./styles";
 
-export function MainContent({ ...props }) {
+export function ScrollSection({ ...props }) {
   return <Container>{...props.children}</Container>;
 }

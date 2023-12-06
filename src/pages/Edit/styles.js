@@ -5,6 +5,10 @@ import ChevronIcon from "../../assets/icons/chevron-down.svg";
 
 export const Container = styled.div``;
 
+export const EditContent = styled.div`
+  margin: 0 1.2rem;
+`;
+
 export const CreationForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -12,7 +16,6 @@ export const CreationForm = styled.form`
   margin-top: 1.5rem;
   max-height: 40rem;
   overflow: auto;
-  padding-bottom: 1.5rem;
 
   > p {
     display: flex;

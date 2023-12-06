@@ -7,6 +7,8 @@ export const Container = styled.a`
   align-items: center;
   width: min-content;
   margin: 1px;
+  align-self: flex-start;
+  margin: 1.2rem 0 0 1.3rem;
 
   &:focus-visible {
     animation-name: focus;
@@ -22,36 +24,15 @@ export const CaretLeft = styled.svg`
   background-size: contain;
   background-position: center;
   overflow: visible;
-  width: ${({ model }) => {
-    switch (model) {
-      case "app_1":
-        return "1rem";
-      case "app_2":
-        return "1.5rem";
-    }
-  }};
-  height: ${({ model }) => {
-    switch (model) {
-      case "app_1":
-        return "1rem";
-      case "app_2":
-        return "1.5rem";
-    }
-  }};
+  width: 1rem;
+  height: 1rem;
   background-image: url(${CaretLeftIcon});
 `;
 
 export const GoBackSpan = styled.span`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   font-family: Poppins, "Roboto";
-  font-size: ${({ model }) => {
-    switch (model) {
-      case "app_1":
-        return "1.033rem";
-      case "app_2":
-        return "1.5rem";
-    }
-  }};
+  font-size: 1.033rem;
   font-weight: 500;
   line-height: 140%; /* 33.6px */
 `;

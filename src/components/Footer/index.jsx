@@ -2,9 +2,9 @@ import { Container, FooterContainer, FooterLogoImage, FooterLogoSpan, ContentLic
 
 import polygon from "../../assets/icons/Polygon_1.svg";
 
-export function Footer() {
+export function Footer({...props}) {
   return (
-    <Container>
+    <Container {...props}>
       <FooterContainer>
         <FooterLogoImage src={polygon} alt="" />
         <FooterLogoSpan>food explorer</FooterLogoSpan>

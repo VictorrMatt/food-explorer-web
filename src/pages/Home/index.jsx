@@ -12,6 +12,7 @@ import {
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
+import { ScrollSection } from "../../components/ScrollSection";
 import { TitleSection } from "../../components/TitleSection";
 import { Dish } from "../../components/Dish";
 import { Footer } from "../../components/Footer";
@@ -50,33 +51,34 @@ export function Home() {
         </ContentHolder>
       </BannerContainer>
 
-      <HomeContent>
-        <TitleSection title="Refeições">
-          <Dish
-            tabIndex="0"
-            imageurl={randomPlate}
-            title="Prato Massa"
-            price="R$99.99"
-            onClick={() => navigate("/details")}
-          />
-          <Dish tabIndex="0" />
-          <Dish tabIndex="0" />
-        </TitleSection>
+      <ScrollSection>
+        <HomeContent>
+          <TitleSection title="Refeições">
+            <Dish
+              tabIndex="0"
+              imageurl={randomPlate}
+              title="Prato Massa"
+              price="R$99.99"
+              onClick={() => navigate("/details")}
+            />
+            <Dish tabIndex="0" />
+            <Dish tabIndex="0" />
+          </TitleSection>
 
-        <TitleSection title="Pratos principais">
-          <Dish tabIndex="0" />
-          <Dish tabIndex="0" />
-          <Dish tabIndex="0" />
-        </TitleSection>
+          <TitleSection title="Pratos principais">
+            <Dish tabIndex="0" />
+            <Dish tabIndex="0" />
+            <Dish tabIndex="0" />
+          </TitleSection>
 
-        <TitleSection title="Bebidas">
-          <Dish tabIndex="0" />
-          <Dish tabIndex="0" />
-          <Dish tabIndex="0" />
-        </TitleSection>
-
+          <TitleSection title="Bebidas">
+            <Dish tabIndex="0" />
+            <Dish tabIndex="0" />
+            <Dish tabIndex="0" />
+          </TitleSection>
+        </HomeContent>
         <Footer />
-      </HomeContent>
+      </ScrollSection>
     </Container>
   );
 }

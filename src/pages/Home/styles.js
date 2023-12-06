@@ -63,6 +63,5 @@ export const HomeContent = styled.main`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-height: 70vh;
-  overflow-y: auto;
+  margin: 0 1.3rem;
 `;

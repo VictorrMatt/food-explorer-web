@@ -1,5 +1,6 @@
 import {
   Container,
+  EditContent,
   CreationForm,
   Title,
   CustomInputContainer,
@@ -14,8 +15,8 @@ import {
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
-import { MainContent } from "../../components/MainContent";
-import { Button } from "../../components/Button";
+/* import { MainContent } from "../../components/MainContent";
+ */ import { Button } from "../../components/Button";
 import { BackButton } from "../../components/BackButton";
 import { Input } from "../../components/Input";
 import { Mark } from "../../components/Mark";
@@ -79,8 +80,8 @@ export function Edit() {
     <Container>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
-      <MainContent>
-        <BackButton model="app_1" tabIndex="0" onClick={handleBack} />
+      <BackButton tabIndex="0" onClick={handleBack} />
+      <EditContent>
         <CreationForm onKeyPress={handleKeyPress}>
           <Title>Editar prato</Title>
           <CustomInputContainer>
@@ -190,7 +191,7 @@ export function Edit() {
             />
           </ButtonsContainer>
         </CreationForm>
-      </MainContent>
+      </EditContent>
     </Container>
   );
 }
