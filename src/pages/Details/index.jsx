@@ -18,27 +18,59 @@ import { ScrollSection } from "../../components/ScrollSection";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import massa from "../../assets/dishes/Mask group-1.png";
+import { api } from "../../services/api";
 
 export function Details() {
   const [sideState, setSideState] = useState("false");
+  const [dish, setDish] = useState({});
+  const [tags, setTags] = useState([]);
 
-  const tags = {
-    1: "pamonha",
-    2: "paçoca",
-    3: "ninho",
-    4: "burocracia",
-    5: "suco de pneu",
-  };
-
+  const params = useParams();
   const navigate = useNavigate();
 
   const handleBack = (e) => {
     e.stopPropagation();
     navigate(-1);
   };
+
+  useEffect(() => {
+    async function fetchDish() {
+      try {
+        const response = await api.get(`/dishes/${params.id}`, {
+          withCredentials: true,
+        });
+        setDish(response.data);
+      } catch (error) {
+        let message = error.response
+          ? error.response.data.message
+          : "Não foi possível procurar os pratos:";
+        alert(message);
+      }
+    }
+
+    fetchDish();
+  }, [params.id]);
+
+  useEffect(() => {
+    async function fetchTags() {
+      try {
+        const response = await api.get(`/tags/${params.id}`, {
+          withCredentials: true,
+        });
+        setTags(response.data);
+      } catch (error) {
+        let message = error.response
+          ? error.response.data.message
+          : "Não foi possível procurar as tags:";
+        alert(message);
+      }
+    }
+
+    fetchTags();
+  }, [dish]);
 
   return (
     <Container>
@@ -50,16 +82,11 @@ export function Details() {
           <Holder>
             <DishImage src={massa} />
             <TextContainer>
-              <DishTitle>Salada Ravanello</DishTitle>
-              <SpanDescription>
-                Rabanetes, folhas verdes e molho agridoce salpicados com
-                gergelim.
-              </SpanDescription>
+              <DishTitle>{dish.name}</DishTitle>
+              <SpanDescription>{dish.description}</SpanDescription>
               <TagContainer>
-                {tags &&
-                  Object.entries(tags).map(([key, value]) => (
-                    <Tag key={key}>{value}</Tag>
-                  ))}
+                {tags.length > 0 &&
+                  tags.map((tag) => <Tag key={tag.id}>{tag.name}</Tag>)}
               </TagContainer>
             </TextContainer>
             <Button type="button" value="Editar prato" />
