@@ -30,7 +30,6 @@ export function Dish({ ...props }) {
 
   const handleLoveDish = (event) => {
     event.stopPropagation(); // Impede a propagação do evento de clique para o contêiner pai
-    console.log("AMANDO");
   };
 
   return (

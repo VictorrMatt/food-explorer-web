@@ -24,7 +24,7 @@ export const Holder = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 1.3rem;
+  margin: 0 1.3rem 3rem;
   gap: 1.5rem;
 `;
 

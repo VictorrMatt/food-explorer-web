@@ -27,6 +27,7 @@ export function Details() {
   const [sideState, setSideState] = useState("false");
   const [dish, setDish] = useState({});
   const [tags, setTags] = useState([]);
+  const [avatarUrl, setAvatarUrl] = useState("");
 
   const params = useParams();
   const navigate = useNavigate();
@@ -43,6 +44,10 @@ export function Details() {
           withCredentials: true,
         });
         setDish(response.data);
+        if (response.data.avatar) {
+          const imageUrl = `${api.defaults.baseURL}/files/${response.data.avatar}`; // Montando a URL completa da imagem
+          setAvatarUrl(imageUrl);
+        }
       } catch (error) {
         let message = error.response
           ? error.response.data.message
@@ -80,7 +85,7 @@ export function Details() {
       <ScrollSection vh="81vh">
         <DetailsContent>
           <Holder>
-            <DishImage src={massa} />
+            <DishImage src={avatarUrl} />
             <TextContainer>
               <DishTitle>{dish.name}</DishTitle>
               <SpanDescription>{dish.description}</SpanDescription>

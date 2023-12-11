@@ -67,7 +67,7 @@ export const DishEditButton = styled.button`
   background-repeat: no-repeat;
   background-size: contain;
 
-/*   filter: opacity(0.1);
+  /*   filter: opacity(0.1);
  */
   &:hover {
     cursor: pointer;
@@ -114,11 +114,12 @@ export const DishLoveButton = styled.button`
 
 export const DishImage = styled.img`
   display: flex;
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 6.5rem;
+  height: 6.5rem;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  border-radius: 50%;
 `;
 
 export const DishTitleHolder = styled.div`

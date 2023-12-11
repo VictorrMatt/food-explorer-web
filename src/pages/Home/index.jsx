@@ -32,11 +32,16 @@ export function Home() {
 
   const [sideState, setSideState] = useState("false");
   const [dishes, setDishes] = useState([]);
+  const [avatarUrl, setAvatarUrl] = useState("");
   const [meal, setMeal] = useState([]);
   const [mainDish, setMainDish] = useState([]);
   const [drink, setDrink] = useState([]);
 
   const navigate = useNavigate();
+
+  const handleImagemUrl = (imageUrl) => {
+    return `${api.defaults.baseURL}/files/${imageUrl}`;
+  };
 
   useEffect(() => {
     async function fetchDishes() {
@@ -97,7 +102,7 @@ export function Home() {
                 <Dish
                   tabIndex="0"
                   key={dish.id}
-                  imageurl={dish.avatar}
+                  imageurl={handleImagemUrl(dish.avatar)}
                   title={dish.name}
                   price={dish.price}
                   onClick={(event) => navigate(`/details/${dish.id}`)}
@@ -112,7 +117,7 @@ export function Home() {
                 <Dish
                   tabIndex="0"
                   key={dish.id}
-                  imageurl={dish.avatar}
+                  imageurl={handleImagemUrl(dish.avatar)}
                   title={dish.name}
                   price={dish.price}
                   onClick={(event) => navigate(`/details/${dish.id}`)}
@@ -127,7 +132,7 @@ export function Home() {
                 <Dish
                   tabIndex="0"
                   key={dish.id}
-                  imageurl={dish.avatar}
+                  imageurl={handleImagemUrl(dish.avatar)}
                   title={dish.name}
                   price={dish.price}
                   onClick={(event) => navigate(`/details/${dish.id}`)}
