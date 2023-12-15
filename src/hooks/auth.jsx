@@ -22,13 +22,13 @@ function AuthProvider({ children }) {
         localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
         setData({ user });
       } else {
-        alert("Nenhum usuário encontrado na resposta.");
+        return alert("Nenhum usuário encontrado na resposta.");
       }
     } catch (error) {
       let message = error.response
         ? error.response.data.message
         : "Não foi possível cadastrar o usuário.";
-      alert(message);
+      return alert(message);
     }
   }
 

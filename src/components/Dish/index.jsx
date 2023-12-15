@@ -22,10 +22,9 @@ export function Dish({ ...props }) {
 
   const navigate = useNavigate();
 
-  const handleEditDish = (event) => {
+  const handleEditDish = (event, id) => {
     event.stopPropagation(); // Impede a propagação do evento de clique para o contêiner pai
-
-    navigate("/edit");
+    navigate(`/edit/${id}`);
   };
 
   const handleLoveDish = (event) => {
@@ -35,7 +34,10 @@ export function Dish({ ...props }) {
   return (
     <Container {...props}>
       {user.role === "admin" ? (
-        <DishEditButton type="button" onClick={handleEditDish} />
+        <DishEditButton
+          type="button"
+          onClick={(event) => handleEditDish(event, props.id)}
+        />
       ) : (
         <DishLoveButton type="button" onClick={handleLoveDish} />
       )}

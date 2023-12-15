@@ -12,16 +12,14 @@ import {
 
 import { Header } from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
-
 import { BackButton } from "../../components/BackButton";
 import { ScrollSection } from "../../components/ScrollSection";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
-import massa from "../../assets/dishes/Mask group-1.png";
 import { api } from "../../services/api";
+import defaultDishImage from "../../assets/dishes/no-image.jpg"; // Importe a imagem padrão
 
 export function Details() {
   const [sideState, setSideState] = useState("false");
@@ -44,15 +42,16 @@ export function Details() {
           withCredentials: true,
         });
         setDish(response.data);
+
         if (response.data.avatar) {
-          const imageUrl = `${api.defaults.baseURL}/files/${response.data.avatar}`; // Montando a URL completa da imagem
+          const imageUrl = `${api.defaults.baseURL}/files/${response.data.avatar}`;
           setAvatarUrl(imageUrl);
         }
       } catch (error) {
         let message = error.response
           ? error.response.data.message
           : "Não foi possível procurar os pratos:";
-        alert(message);
+        return alert(message);
       }
     }
 
@@ -70,7 +69,7 @@ export function Details() {
         let message = error.response
           ? error.response.data.message
           : "Não foi possível procurar as tags:";
-        alert(message);
+        return alert(message);
       }
     }
 
@@ -85,7 +84,7 @@ export function Details() {
       <ScrollSection vh="81vh">
         <DetailsContent>
           <Holder>
-            <DishImage src={avatarUrl} />
+            <DishImage src={avatarUrl || defaultDishImage} />
             <TextContainer>
               <DishTitle>{dish.name}</DishTitle>
               <SpanDescription>{dish.description}</SpanDescription>

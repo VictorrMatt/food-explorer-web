@@ -19,11 +19,11 @@ import { Footer } from "../../components/Footer";
 
 import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import background from "../../assets/images/detail.png";
 
-import randomPlate from "../../assets/dishes/Mask group-10.png";
-import { useNavigate } from "react-router-dom";
+import defaultDishImage from "../../assets/dishes/no-image.jpg";
 
 import { api } from "../../services/api";
 
@@ -32,7 +32,6 @@ export function Home() {
 
   const [sideState, setSideState] = useState("false");
   const [dishes, setDishes] = useState([]);
-  const [avatarUrl, setAvatarUrl] = useState("");
   const [meal, setMeal] = useState([]);
   const [mainDish, setMainDish] = useState([]);
   const [drink, setDrink] = useState([]);
@@ -40,7 +39,9 @@ export function Home() {
   const navigate = useNavigate();
 
   const handleImagemUrl = (imageUrl) => {
-    return `${api.defaults.baseURL}/files/${imageUrl}`;
+    return imageUrl
+      ? `${api.defaults.baseURL}/files/${imageUrl}`
+      : defaultDishImage;
   };
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export function Home() {
         let message = error.response
           ? error.response.data.message
           : "Não foi possível procurar os pratos:";
-        alert(message);
+        return alert(message);
       }
     }
 
@@ -102,6 +103,7 @@ export function Home() {
                 <Dish
                   tabIndex="0"
                   key={dish.id}
+                  id={dish.id}
                   imageurl={handleImagemUrl(dish.avatar)}
                   title={dish.name}
                   price={dish.price}
@@ -117,6 +119,7 @@ export function Home() {
                 <Dish
                   tabIndex="0"
                   key={dish.id}
+                  id={dish.id}
                   imageurl={handleImagemUrl(dish.avatar)}
                   title={dish.name}
                   price={dish.price}
@@ -132,6 +135,7 @@ export function Home() {
                 <Dish
                   tabIndex="0"
                   key={dish.id}
+                  id={dish.id}
                   imageurl={handleImagemUrl(dish.avatar)}
                   title={dish.name}
                   price={dish.price}
