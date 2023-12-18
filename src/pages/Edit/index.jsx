@@ -29,15 +29,6 @@ import { api } from "../../services/api";
 export function Edit() {
   const [sidestate, setsidestate] = useState("false");
 
-  const originalState = {
-    name: "",
-    category: "mainDish",
-    tags: [],
-    price: "",
-    description: "",
-  };
-  const [initialState, setInitialState] = useState(originalState);
-
   const [dish, setDish] = useState({});
   const [avatarUrl, setAvatarUrl] = useState("");
 
@@ -91,38 +82,34 @@ export function Edit() {
         description,
       };
 
-      // Fazer a requisição PUT para atualizar o prato na API
       await api.put(`/dishes/${params.id}`, updatedDish, {
         withCredentials: true,
       });
-
-      // Atualizar o estado inicial com os novos valores
-      setInitialState({
-        name,
-        category,
-        tags,
-        price,
-        description,
-      });
-
-      alert("Alterações salvas com sucesso!");
     } catch (error) {
       let message = error.response
         ? error.response.data.message
-        : "Não foi possível salvar as alterações:";
+        : "Não foi possível salvar as alterações.";
       return alert(message);
     }
   };
 
-  const handleDiscardChanges = () => {
-    // Restaurar os valores iniciais dos estados com base nos dados originais do prato
-    setName(initialState.name);
-    setCategory(initialState.category);
-    setTags(initialState.tags);
-    setPrice(initialState.price);
-    setDescription(initialState.description);
+  const handleDeleteDish = async () => {
+    const confirmation = window.confirm(
+      "Tem certeza que deseja excluir o prato?"
+    );
 
-    return alert("Alterações descartadas!");
+    if (confirmation) {
+      try {
+        await api.delete(`/dishes/${params.id}`, {
+          withCredentials: true,
+        });
+      } catch (error) {
+        let message = error.response
+          ? error.response.data.message
+          : "Não foi possível excluir o prato.";
+        return alert(message);
+      }
+    }
   };
 
   addKeyPressListener(setsidestate);
@@ -178,6 +165,7 @@ export function Edit() {
       setDescription(dish.description || "");
     }
   }, [dish]);
+
   return (
     <>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
@@ -278,14 +266,14 @@ export function Edit() {
               type="button"
               model="app_1"
               value="Excluir prato"
-              onClick=""
+              onClick={() => handleDeleteDish()}
             />
 
             <Button
               type="button"
               model="app_2"
               value="Salvar alterações"
-              onClick=""
+              onClick={() => handleSaveChanges()}
             />
           </ButtonsContainer>
         </CreationForm>

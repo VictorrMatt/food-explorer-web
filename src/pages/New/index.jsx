@@ -23,6 +23,8 @@ import { useNavigate } from "react-router-dom";
 
 import addKeyPressListener from "../../utils/addKeyPressListener";
 
+import { api } from "../../services/api";
+
 export function New() {
   const [sidestate, setsidestate] = useState("false");
 
@@ -63,6 +65,33 @@ export function New() {
       e.preventDefault();
       return;
     }
+  };
+
+  const handleSaveChanges = async () => {
+    if (!name || !price) {
+      return alert("Bota os coisa certo otário.");
+    }
+
+    try {
+      const dish = {
+        name,
+        category,
+        tags,
+        price,
+        description,
+      };
+
+      await api.post(`/dishes`, dish, {
+        withCredentials: true,
+      });
+    } catch (error) {
+      let message = error.response
+        ? error.response.data.message
+        : "Não foi possível criar um novo prato.";
+      return alert(message);
+    }
+
+    return alert("Prato criado com sucesso!");
   };
 
   const showData = () => {
@@ -172,9 +201,7 @@ export function New() {
             type="button"
             model="others"
             value="Salvar alterações"
-            onClick={() => {
-              showData();
-            }}
+            onClick={() => handleSaveChanges()}
           />
         </CreationForm>
       </EditContent>

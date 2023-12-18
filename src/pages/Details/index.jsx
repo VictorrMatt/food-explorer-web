@@ -64,6 +64,7 @@ export function Details() {
         const response = await api.get(`/tags/${params.id}`, {
           withCredentials: true,
         });
+
         setTags(response.data);
       } catch (error) {
         let message = error.response
@@ -93,7 +94,11 @@ export function Details() {
                   tags.map((tag) => <Tag key={tag.id}>{tag.name}</Tag>)}
               </TagContainer>
             </TextContainer>
-            <Button type="button" value="Editar prato" />
+            <Button
+              type="button"
+              value="Editar prato"
+              onClick={() => navigate(`/edit/${dish.id}`)}
+            />
           </Holder>
         </DetailsContent>
         <Footer />
