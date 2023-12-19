@@ -32,6 +32,7 @@ export function Edit() {
   const [dish, setDish] = useState({});
   const [avatarUrl, setAvatarUrl] = useState("");
 
+  const [selectedImage, setSelectedImage] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("mainDish");
   const [tags, setTags] = useState([]);
@@ -42,9 +43,12 @@ export function Edit() {
   const params = useParams();
   const navigate = useNavigate();
 
-  const handleBack = (e) => {
-    e.stopPropagation();
+  const handleBack = () => {
     navigate(-1);
+  };
+
+  const handleBackHome = () => {
+    navigate("/");
   };
 
   function handleAddTag() {
@@ -77,7 +81,7 @@ export function Edit() {
       const updatedDish = {
         name,
         category,
-        tags,
+        ingredients: tags,
         price,
         description,
       };
@@ -91,6 +95,11 @@ export function Edit() {
         : "Não foi possível salvar as alterações.";
       return alert(message);
     }
+
+    if (selectedImage) {
+      handleSendImage();
+    }
+    handleBack();
   };
 
   const handleDeleteDish = async () => {
@@ -109,6 +118,30 @@ export function Edit() {
           : "Não foi possível excluir o prato.";
         return alert(message);
       }
+    }
+
+    handleBackHome();
+  };
+
+  const handleSendImage = async () => {
+    try {
+      const formData = new FormData();
+
+      if (selectedImage) {
+        formData.append("avatar", selectedImage);
+      }
+
+      await api.patch(`/dishes/${params.id}/avatar`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        withCredentials: true,
+      });
+    } catch (error) {
+      let message = error.response
+        ? error.response.data.message
+        : "Não foi possível enviar a imagem do prato.";
+      return alert(message);
     }
   };
 
@@ -138,22 +171,24 @@ export function Edit() {
   }, [params.id]);
 
   useEffect(() => {
-    async function fetchTags() {
-      try {
-        const response = await api.get(`/tags/${params.id}`, {
-          withCredentials: true,
-        });
-        const tagNames = response.data.map((tag) => tag.name);
-        setTags(tagNames);
-      } catch (error) {
-        let message = error.response
-          ? error.response.data.message
-          : "Não foi possível procurar as tags:";
-        return alert(message);
+    if (dish.ingredients) {
+      async function fetchTags() {
+        try {
+          const response = await api.get(`/tags/${params.id}`, {
+            withCredentials: true,
+          });
+          const tagNames = response.data.map((tag) => tag.name);
+          setTags(tagNames);
+        } catch (error) {
+          let message = error.response
+            ? error.response.data.message
+            : "Não foi possível procurar as tags:";
+          return alert(message);
+        }
       }
-    }
 
-    fetchTags();
+      fetchTags();
+    }
   }, [dish]);
 
   useEffect(() => {
@@ -179,7 +214,13 @@ export function Edit() {
             <LabelForInput htmlFor="customInput" tabIndex="0">
               Selecione imagem para alterá-la
             </LabelForInput>
-            <InputFile id="customInput" type="file" />
+            <InputFile
+              id="customInput"
+              type="file"
+              onChange={(e) => {
+                setSelectedImage(e.target.files[0]);
+              }}
+            />
           </CustomInputContainer>
           <Input
             type="text"
@@ -273,7 +314,9 @@ export function Edit() {
               type="button"
               model="app_2"
               value="Salvar alterações"
-              onClick={() => handleSaveChanges()}
+              onClick={() => {
+                handleSaveChanges();
+              }}
             />
           </ButtonsContainer>
         </CreationForm>

@@ -28,18 +28,23 @@ import { api } from "../../services/api";
 export function New() {
   const [sidestate, setsidestate] = useState("false");
 
+  const [selectedImage, setSelectedImage] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("mainDish");
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [dishId, setDishId] = useState();
 
   const navigate = useNavigate();
 
-  const handleBack = (e) => {
-    e.stopPropagation();
+  const handleBack = () => {
     navigate(-1);
+  };
+
+  const handleBackHome = () => {
+    navigate("/");
   };
 
   function handleAddTag() {
@@ -81,9 +86,13 @@ export function New() {
         description,
       };
 
-      await api.post(`/dishes`, dish, {
+      const response = await api.post(`/dishes`, dish, {
         withCredentials: true,
       });
+
+      const { id: dishId } = response.data; // Obtém o ID do prato criado
+      setDishId(dishId);
+      console.log(dishId);
     } catch (error) {
       let message = error.response
         ? error.response.data.message
@@ -91,13 +100,34 @@ export function New() {
       return alert(message);
     }
 
+    if (selectedImage) {
+      await handleSendImage(); // Envia a imagem com o ID do prato
+    }
+
+    handleBackHome();
     return alert("Prato criado com sucesso!");
   };
 
-  const showData = () => {
-    console.log(
-      `Name: ${name} Category: ${category} Tags: ${tags} Price: ${price} Description: ${description}`
-    );
+  const handleSendImage = async () => {
+    try {
+      const formData = new FormData();
+
+      if (selectedImage) {
+        formData.append("avatar", selectedImage);
+      }
+
+      await api.patch(`/dishes/${dishId}/avatar`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        withCredentials: true,
+      });
+    } catch (error) {
+      let message = error.response
+        ? error.response.data.message
+        : "Não foi possível enviar a imagem do prato.";
+      return alert(message);
+    }
   };
 
   addKeyPressListener(setsidestate);
@@ -115,7 +145,13 @@ export function New() {
             <LabelForInput htmlFor="customInput" tabIndex="0">
               Selecione imagem para alterá-la
             </LabelForInput>
-            <InputFile id="customInput" type="file" />
+            <InputFile
+              id="customInput"
+              type="file"
+              onChange={(e) => {
+                setSelectedImage(e.target.files[0]);
+              }}
+            />
           </CustomInputContainer>
           <Input
             type="text"
