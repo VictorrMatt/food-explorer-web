@@ -74,14 +74,14 @@ export function New() {
 
   const handleSaveChanges = async () => {
     if (!name || !price) {
-      return alert("Bota os coisa certo otário.");
+      return alert("Preencha todos os campos obrigatórios.");
     }
 
     try {
       const dish = {
         name,
         category,
-        tags,
+        ingredients: tags,
         price,
         description,
       };
@@ -90,25 +90,35 @@ export function New() {
         withCredentials: true,
       });
 
-      const { id: dishId } = response.data; // Obtém o ID do prato criado
-      setDishId(dishId);
-      console.log(dishId);
+      const dish_id = response.data.dish_id; // Obtém o ID do prato criado
+      return dish_id;
     } catch (error) {
       let message = error.response
         ? error.response.data.message
         : "Não foi possível criar um novo prato.";
       return alert(message);
     }
-
-    if (selectedImage) {
-      await handleSendImage(); // Envia a imagem com o ID do prato
-    }
-
-    handleBackHome();
-    return alert("Prato criado com sucesso!");
   };
 
-  const handleSendImage = async () => {
+  const handleHandle = async () => {
+    try {
+      const createdDishId = await handleSaveChanges(); // Aguarda a conclusão da criação do prato
+
+      if (selectedImage) {
+        await handleSendImage(createdDishId); // Aguarda a conclusão do envio da imagem
+      }
+
+      handleBackHome();
+      return alert("Prato criado com sucesso!");
+    } catch (error) {
+      let message = error.response
+        ? error.response.data.message
+        : "Não foi possível criar um novo prato.";
+      return alert(message);
+    }
+  };
+
+  const handleSendImage = async (id) => {
     try {
       const formData = new FormData();
 
@@ -116,7 +126,8 @@ export function New() {
         formData.append("avatar", selectedImage);
       }
 
-      await api.patch(`/dishes/${dishId}/avatar`, formData, {
+      console.log(`/dishes/${id}/avatar`);
+      await api.patch(`/dishes/${id}/avatar`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -237,7 +248,7 @@ export function New() {
             type="button"
             model="others"
             value="Salvar alterações"
-            onClick={() => handleSaveChanges()}
+            onClick={() => handleHandle()}
           />
         </CreationForm>
       </EditContent>
