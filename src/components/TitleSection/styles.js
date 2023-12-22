@@ -32,21 +32,5 @@ export const SectionChildren = styled.div`
   gap: 1rem;
   white-space: nowrap; /* Impedindo que os itens quebrem para a próxima linha */
   border-radius: 0.5rem;
-
-  /* WebKit (Chrome, Safari) */
-  &::-webkit-scrollbar {
-    width: 12px; /* Largura da barra de rolagem */
-    height: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.COLORS.CAKE_200};
-    border-radius: 10px;
-  }
-
-  /* Firefox */
-  & {
-    scrollbar-width: thin; /* Largura da barra de rolagem */
-    scrollbar-color: ${({ theme }) => theme.COLORS.CAKE_200} transparent; /* Cor do thumb e do track */
-  }
+  cursor: grab;
 `;

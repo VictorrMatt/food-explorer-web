@@ -81,21 +81,20 @@ export function Home() {
       <Header sidestate={sideState} setsidestate={setSideState} />
       <SideMenu sidestate={sideState} setsidestate={setSideState} />
 
-      <BannerContainer>
-        <BannerGradient />
-        <BannerImage src={background} alt="Imagem de ingredientes" />
+      <ScrollSection vh="88vh">
+        <BannerContainer>
+          <BannerGradient />
+          <BannerImage src={background} alt="Imagem de ingredientes" />
 
-        <ContentHolder>
-          <TextContainer>
-            <BannerTitle>Sabores inigualáveis</BannerTitle>
-            <Description>
-              Sinta o cuidado do preparo com ingredientes selecionados
-            </Description>
-          </TextContainer>
-        </ContentHolder>
-      </BannerContainer>
-
-      <ScrollSection vh="70vh">
+          <ContentHolder>
+            <TextContainer>
+              <BannerTitle>Sabores inigualáveis</BannerTitle>
+              <Description>
+                Sinta o cuidado do preparo com ingredientes selecionados
+              </Description>
+            </TextContainer>
+          </ContentHolder>
+        </BannerContainer>
         <HomeContent>
           {meal != "" && (
             <TitleSection title="Refeições">

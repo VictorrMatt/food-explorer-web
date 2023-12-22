@@ -145,4 +145,8 @@ export const Textarea = styled.textarea`
 export const ButtonsContainer = styled.div`
   display: flex;
   gap: 1rem;
+
+  &:last-child {
+    margin: 1rem 0 2rem;
+  }
 `;

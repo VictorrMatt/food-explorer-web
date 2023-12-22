@@ -6,19 +6,21 @@ export const Container = styled.div`
   grid-template-areas:
     "logo"
     "main";
-  gap: 4.56rem;
-  margin: 9.87rem 1.5rem 0;
+  gap: 4rem;
+  height: 100vh;
+  margin: -1.5rem 1.5rem 0;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     grid-template-areas: "logo main";
     align-items: center;
+    align-self: center; /* Alinha o próprio Container verticalmente */
   }
 `;
 
 export const LogoContainer = styled.div`
   grid-area: logo;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   gap: 0.62rem;
 

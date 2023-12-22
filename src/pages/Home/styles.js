@@ -11,7 +11,7 @@ export const BannerContainer = styled.div`
   display: flex;
   position: relative;
   height: 7.5rem;
-  margin: 0.5rem 1rem 1.5rem 1rem;
+  margin: 0.5rem 1rem 2.5rem 1rem;
   min-width: clamp(18rem, 76vw, 21.43rem);
 `;
 
@@ -65,3 +65,5 @@ export const HomeContent = styled.main`
   gap: 1.5rem;
   margin: 0 1.3rem;
 `;
+
+export const ScrollButton = styled.button``;

@@ -6,7 +6,19 @@ import {
   SectionChildren,
 } from "./styles";
 
+import Slider from "react-slick";
+
 export function TitleSection({ ...props }, { ...rest }) {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    draggable: true,
+    swipeToSlide: true,
+    variableWidth: true,
+    focusOnSelect: false,
+    arrows: false,
+  };
   return (
     <Container {...rest}>
       {props.title && (
@@ -15,7 +27,7 @@ export function TitleSection({ ...props }, { ...rest }) {
           <SymbolSpan> &#8628;</SymbolSpan>
         </SectionTitleContainer>
       )}
-      <SectionChildren>{props.children}</SectionChildren>
+      <Slider {...settings}>{props.children}</Slider>
     </Container>
   );
 }

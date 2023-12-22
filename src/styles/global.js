@@ -60,6 +60,26 @@ export default createGlobalStyle`
     outline: none;
   }
 
+  /* WebKit (Chrome, Safari) */
+  *::-webkit-scrollbar {
+    /* width: 5px; 
+    height: 3px; */
+    width: 0;
+    height: 0;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    /* background-color: ${({ theme }) => theme.COLORS.CAKE_200}; */
+    /* border-radius: 10px; */
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin; /* Largura da barra de rolagem */
+    scrollbar-color: ${({ theme }) =>
+      theme.COLORS.CAKE_200} transparent; /* Cor do thumb e do track */
+  }
+
   @keyframes focus {
     0% {
       outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};

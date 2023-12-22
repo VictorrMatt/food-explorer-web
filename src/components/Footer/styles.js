@@ -11,7 +11,7 @@ export const Container = styled.footer`
   align-items: center;
   flex-shrink: 0;
   padding: 1.5rem 1.3rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 `;
 

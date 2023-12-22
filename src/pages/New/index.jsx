@@ -9,6 +9,7 @@ import {
   Select,
   MarkersContainer,
   Textarea,
+  ButtonsContainer,
 } from "../Edit/styles";
 
 import { Header } from "../../components/Header";
@@ -30,7 +31,7 @@ export function New() {
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [name, setName] = useState("");
-  const [category, setCategory] = useState("mainDish");
+  const [category, setCategory] = useState("meal");
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
   const [price, setPrice] = useState("");
@@ -244,12 +245,14 @@ export function New() {
               }}
             ></Textarea>
           </CustomInputContainer>
-          <Button
-            type="button"
-            model="others"
-            value="Salvar alterações"
-            onClick={() => handleHandle()}
-          />
+          <ButtonsContainer>
+            <Button
+              type="button"
+              model="others"
+              value="Salvar alterações"
+              onClick={() => handleHandle()}
+            />
+          </ButtonsContainer>
         </CreationForm>
       </EditContent>
     </>
