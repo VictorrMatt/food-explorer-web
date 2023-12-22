@@ -8,6 +8,7 @@ import {
   SpanDescription,
   TagContainer,
   Tag,
+  AnotherHolder,
 } from "./styles";
 
 import { Header } from "../../components/Header";
@@ -18,14 +19,22 @@ import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
+import { useAuth } from "../../hooks/auth";
+
 import { api } from "../../services/api";
+
 import defaultDishImage from "../../assets/dishes/no-image.jpg"; // Importe a imagem padrão
+import { QuantityControl } from "../../components/QuantityControl";
 
 export function Details() {
+  const { user } = useAuth();
+
   const [sideState, setSideState] = useState("false");
   const [dish, setDish] = useState({});
   const [tags, setTags] = useState([]);
   const [avatarUrl, setAvatarUrl] = useState("");
+  const [buttonValue, setButtonValue] = useState("00,00");
 
   const params = useParams();
   const navigate = useNavigate();
@@ -41,7 +50,7 @@ export function Details() {
           withCredentials: true,
         });
         setDish(response.data);
-
+        setButtonValue(response.data.price);
         if (response.data.avatar) {
           const imageUrl = `${api.defaults.baseURL}/files/${response.data.avatar}`;
           setAvatarUrl(imageUrl);
@@ -93,11 +102,18 @@ export function Details() {
                   tags.map((tag) => <Tag key={tag.id}>{tag.name}</Tag>)}
               </TagContainer>
             </TextContainer>
-            <Button
-              type="button"
-              value="Editar prato"
-              onClick={() => navigate(`/edit/${dish.id}`)}
-            />
+            {user.role === "admin" ? (
+              <Button
+                type="button"
+                value="Editar prato"
+                onClick={() => navigate(`/edit/${dish.id}`)}
+              />
+            ) : (
+              <AnotherHolder>
+                <QuantityControl out="true" />
+                <Button out="true" value={"pedir - R$ " + buttonValue} />
+              </AnotherHolder>
+            )}
           </Holder>
         </DetailsContent>
         <Footer />

@@ -24,8 +24,8 @@ export const Holder = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 1.3rem 3rem;
-  gap: 1.5rem;
+  margin: 0 1.3rem 1rem;
+  gap: 1rem;
 `;
 
 export const TextContainer = styled.div`
@@ -73,4 +73,16 @@ export const Tag = styled.p`
   font-size: 0.87rem;
   font-weight: 400;
   line-height: 171.429%;
+`;
+
+export const AnotherHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+  align-items: center;
+
+  &:hover {
+    cursor: not-allowed;
+  }
 `;

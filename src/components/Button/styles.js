@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.button`
+  ${(props) => props.out && `filter: opacity(0.2);`}
+
   width: 100%;
   max-width: ${({ model }) => {
     switch (model) {

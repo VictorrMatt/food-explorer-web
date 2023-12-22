@@ -7,15 +7,12 @@ import {
   Title,
   SymbolSpan,
   DishPrice,
-  Amount,
-  MinusIcon,
-  QuantitySpan,
-  PlusIcon,
   DishButton,
 } from "./styles";
 
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { QuantityControl } from "../QuantityControl";
 
 export function Dish({ ...props }) {
   const { user } = useAuth();
@@ -49,11 +46,7 @@ export function Dish({ ...props }) {
       <DishPrice>{props.price}</DishPrice>
       {user.role === "customer" && (
         <>
-          <Amount>
-            <MinusIcon />
-            <QuantitySpan>01</QuantitySpan>
-            <PlusIcon />
-          </Amount>
+          <QuantityControl out="true" />
           <DishButton type="button">Incluir</DishButton>
         </>
       )}
