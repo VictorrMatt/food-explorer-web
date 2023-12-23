@@ -205,13 +205,17 @@ export function Edit() {
     <>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
-      <BackButton tabIndex="0" onClick={handleBack} />
+      <BackButton tabIndex="0" onClick={() => handleBack()} />
       <EditContent>
         <CreationForm onKeyPress={handleKeyPress}>
           <Title>Editar prato</Title>
           <CustomInputContainer>
             <GenericLabel htmlFor="customInput">Imagem do prato</GenericLabel>
-            <LabelForInput htmlFor="customInput" tabIndex="0">
+            <LabelForInput
+              htmlFor="customInput"
+              tabIndex="0"
+              sent={selectedImage}
+            >
               Selecione imagem para alterá-la
             </LabelForInput>
             <InputFile

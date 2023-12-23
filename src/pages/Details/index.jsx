@@ -39,8 +39,8 @@ export function Details() {
   const params = useParams();
   const navigate = useNavigate();
 
-  const handleBackHome = (e) => {
-    navigate("/");
+  const handleBack = (e) => {
+    navigate(-1);
   };
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export function Details() {
     <Container>
       <Header sidestate={sideState} setsidestate={setSideState} />
       <SideMenu sidestate={sideState} setsidestate={setSideState} />
-      <BackButton tabIndex="0" onClick={handleBackHome} />
+      <BackButton tabIndex="0" onClick={() => handleBack()} />
       <ScrollSection vh="81vh">
         <DetailsContent>
           <Holder>

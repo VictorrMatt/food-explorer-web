@@ -60,7 +60,8 @@ export const LabelForInput = styled.label`
   line-height: 171.429%;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
-  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  color: ${({ theme, sent }) =>
+    sent ? theme.COLORS.MINT_100 : theme.COLORS.LIGHT_100};
 
   background-image: url(${UploadIcon});
   background-repeat: no-repeat;

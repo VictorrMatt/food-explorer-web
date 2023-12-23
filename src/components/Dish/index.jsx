@@ -29,7 +29,7 @@ export function Dish({ ...props }) {
   };
 
   return (
-    <Container {...props} style={{ display: "flex" }}>
+    <Container {...props} tabIndex="0" style={{ display: "flex" }}>
       {user.role === "admin" ? (
         <DishEditButton
           type="button"

@@ -36,7 +36,6 @@ export function New() {
   const [newTag, setNewTag] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [dishId, setDishId] = useState();
 
   const navigate = useNavigate();
 
@@ -148,13 +147,17 @@ export function New() {
     <>
       <Header sidestate={sidestate} setsidestate={setsidestate} />
       <SideMenu sidestate={sidestate} setsidestate={setsidestate} />
-      <BackButton tabIndex="0" onClick={handleBack} />
+      <BackButton tabIndex="0" onClick={() => handleBack()} />
       <EditContent>
         <CreationForm onKeyPress={handleKeyPress}>
           <Title>Novo prato</Title>
           <CustomInputContainer>
             <GenericLabel htmlFor="customInput">Imagem do prato</GenericLabel>
-            <LabelForInput htmlFor="customInput" tabIndex="0">
+            <LabelForInput
+              htmlFor="customInput"
+              tabIndex="0"
+              sent={selectedImage}
+            >
               Selecione imagem para alterá-la
             </LabelForInput>
             <InputFile

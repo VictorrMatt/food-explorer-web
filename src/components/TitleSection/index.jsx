@@ -11,7 +11,7 @@ import Slider from "react-slick";
 export function TitleSection({ ...props }, { ...rest }) {
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     draggable: true,
     swipeToSlide: true,
