@@ -1,17 +1,11 @@
-import {
-  Container,
-  SectionTitleContainer,
-  Title,
-  SymbolSpan,
-  SectionChildren,
-} from "./styles";
+import { Container, SectionTitleContainer, Title, SymbolSpan } from "./styles";
 
 import Slider from "react-slick";
 
 export function TitleSection({ ...props }, { ...rest }) {
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     draggable: true,
     swipeToSlide: true,
